@@ -1,504 +1,649 @@
-**# Lalibela: A Story Carved in Stone**
+# Lalibela: A Story Carved in Stone
 
 
 
-**An AI-generated bilingual heritage short about the rock-hewn churches of Lalibela, Ethiopia. The project demonstrates a Python-based creative AI production workflow combining AI-generated images, synthetic narration, original AI-generated music, subtitles, and FFmpeg video assembly.**
+An AI-generated bilingual heritage short about the rock-hewn churches of Lalibela, Ethiopia. The project demonstrates a Python-based creative AI production workflow combining AI-generated images, synthetic narration, original AI-generated music, subtitles, and FFmpeg video assembly.
 
 
 
-**## 1. Project overview**
+## 1. Project overview
 
 
 
-**\*\*Film title:\*\* Lalibela: A Story Carved in Stone**  
+Film title: Lalibela: A Story Carved in Stone
 
-**\*\*Amharic title:\*\* ላሊበላ፡ በድንጋይ የተቀረፀ ታሪክ**  
+Amharic title: ላሊበላ፡ በድንጋይ የተቀረፀ ታሪክ
 
-**\*\*Subject:\*\* The rock-hewn churches and living heritage of Lalibela, Ethiopia**  
+Subject: The rock-hewn churches and living heritage of Lalibela, Ethiopia
 
-**\*\*Audience:\*\* International audiences interested in Ethiopian history, culture, and heritage**  
+Audience: International audiences interested in Ethiopian history, culture, and heritage
 
-**\*\*Languages:\*\* Amharic and English narration, with English subtitles**  
+Languages: Amharic and English narration, with English subtitles
 
-**\*\*Duration:\*\* 89 seconds, including the end card**
+Duration: Approximately 89 seconds, including the end card
 
 
 
-**The story follows fictional international visitors discovering Lalibela's remarkable rock-hewn churches with the help of an Ethiopian guide.**
+The story follows fictional international visitors discovering Lalibela's remarkable rock-hewn churches with the help of an Ethiopian guide.
 
 
 
-**## 2. Current project status**
+## 2. Current project status
 
 
 
-**- Eight-shot storyboard created and validated against a JSON Schema.**
+- Eight-shot storyboard created and validated against a JSON Schema.
 
-**- Eight AI-generated keyframe images created.**
+- Eight AI-generated keyframe images created.
 
-**- Selective keyframe generation with caching and retry logic implemented.**
+- Selective keyframe generation with caching and retry logic implemented.
 
-**- Amharic and English synthetic narration generated.**
+- Amharic and English synthetic narration generated.
 
-**- Original AI-generated background music produced.**
+- Original AI-generated background music produced using ACE-Step 1.5.
 
-**- Narration and music mixed.**
+- Narration and music mixed into a final audio track.
 
-**- English subtitles created.**
+- English subtitles created.
 
-**- Eight moving-shot clips produced using FFmpeg pan-and-zoom effects.**
+- Eight moving-shot clips produced using FFmpeg pan-and-zoom effects.
 
-**- Horizontal 16:9 film assembled.**
+- Horizontal 16:9 film assembled.
 
-**- Vertical 9:16 film assembled.**
+- Vertical 9:16 film assembled.
 
-**- AI-generated end card created.**
+- AI-generated end card created.
 
-**- Technical and production documentation prepared.**
+- Radio cut produced for audience evaluation.
 
+- Three audience feedback submissions collected.
 
+- Technical and production documentation prepared.
 
-**The final film exports are available in `outputs/`.**
+- Python pipeline runner implemented for rebuilding the videos from existing production assets.
 
+- Public GitHub repository created.
 
 
-**\*\*Remaining work:\*\* Audience testing, final documentation updates, repository publication, and Assignment 2 submission materials.**
 
+The final film exports and project report are available in `outputs/`.
 
 
-**## 3. Final outputs**
 
+## 3. Final outputs
 
 
-**| File | Description |**
 
-**|---|---|**
+| File | Description |
 
-**| `outputs/lalibela\_horizontal.mp4` | Horizontal 16:9 film |**
+|---|---|
 
-**| `outputs/lalibela\_vertical.mp4` | Vertical 9:16 film |**
+| `outputs/lalibela_horizontal.mp4` | Horizontal 16:9 film |
 
+| `outputs/lalibela_vertical.mp4` | Vertical 9:16 film |
 
+| `outputs/lalibela_radio_cut.mp4` | Radio cut with narration and placeholder music |
 
-**Both versions have an approximate duration of 89 seconds.**
+| `outputs/Lalibela_Final_Report.pdf` | Final project report |
 
+| `outputs/audience_feedback.csv` | Collected audience feedback |
 
 
-**## 4. Technology and tools**
 
+Both final film versions have an approximate duration of 89 seconds.
 
 
-**- \*\*Python:\*\* Production scripts and pipeline coordination.**
 
-**- \*\*JSON and JSON Schema:\*\* Structured storyboard and validation.**
+## 4. Technology and tools
 
-**- \*\*Cloudflare Workers AI:\*\* FLUX.2 Klein image generation.**
 
-**- \*\*Google Gemini API:\*\* Amharic and English text-to-speech.**
 
-**- \*\*ACE-Step 1.5:\*\* AI-generated background music.**
+- Python: Production scripts and pipeline coordination.
 
-**- \*\*Pillow:\*\* End-card and image processing.**
+- JSON and JSON Schema: Structured storyboard and validation.
 
-**- \*\*FFmpeg:\*\* Image animation, audio mixing, subtitles, and video assembly.**
+- Cloudflare Workers AI: FLUX.2 Klein image generation.
 
+- Google Gemini API: Amharic and English text-to-speech.
 
+- ACE-Step 1.5: AI-generated background music.
 
-**## 5. Project structure**
+- Pillow: End-card and image processing.
 
+- FFmpeg: Image animation, audio processing, subtitles, and video assembly.
 
+- Git and GitHub: Version control and public project repository.
 
-**```text**
 
-**lalibela-heritage-short/**
 
-**├── storyboard.json**
+## 5. Project structure
 
-**├── storyboard.schema.json**
 
-**├── requirements.txt**
 
-**├── .gitignore**
+```text
 
-**├── README.md**
+lalibela-heritage-short/
 
-**├── DESIGN.md**
+├── storyboard.json
 
-**├── ARCHITECTURE.md**
+├── storyboard.schema.json
 
-**├── EXPERIMENTS.md**
+├── requirements.txt
 
-**├── FAILURES.md**
+├── .env.example
 
-**├── COSTS.md**
+├── .gitignore
 
-**├── ETHICS.md**
+├── run_pipeline.py
 
-**├── config/**
+├── feedback_app.py
 
-**├── scripts/**
+├── create_report_pdf.py
 
-**│   ├── 01\_validate\_storyboard.py**
+├── README.md
 
-**│   ├── 02\_test\_gemini\_tts.py**
+├── DESIGN.md
 
-**│   ├── 03\_test\_amharic\_tts.py**
+├── ARCHITECTURE.md
 
-**│   ├── 04\_prepare\_narration.py**
+├── EXPERIMENTS.md
 
-**│   ├── 05\_generate\_narration.py**
+├── FAILURES.md
 
-**│   ├── 06\_check\_audio.py**
+├── COSTS.md
 
-**│   ├── 07\_assemble\_narration\_track.py**
+├── ETHICS.md
 
-**│   ├── 08\_generate\_test\_image.py**
+├── FINAL_REPORT.md
 
-**│   ├── 09\_generate\_keyframes.py**
+├── config/
 
-**│   ├── 10\_check\_images.py**
+├── scripts/
 
-**│   ├── 11\_fix\_image\_extensions.py**
+│   ├── 01_validate_storyboard.py
 
-**│   ├── 12\_create\_contact\_sheet.py**
+│   ├── 02_test_gemini_tts.py
 
-**│   ├── 13\_create\_end\_card.py**
+│   ├── 03_test_amharic_tts.py
 
-**│   ├── 14\_create\_moving\_shots.py**
+│   ├── 04_prepare_narration.py
 
-**│   └── 15\_assemble\_horizontal.py**
+│   ├── 05_generate_narration.py
 
-**├── assets/**
+│   ├── 06_check_audio.py
 
-**│   ├── images/**
+│   ├── 07_assemble_narration_track.py
 
-**│   ├── video/**
+│   ├── 08_generate_test_image.py
 
-**│   ├── audio/**
+│   ├── 09_generate_keyframes.py
 
-**│   └── subtitles/**
+│   ├── 10_check_images.py
 
-**├── logs/**
+│   ├── 11_fix_image_extensions.py
 
-**│   └── runs.jsonl**
+│   ├── 12_create_contact_sheet.py
 
-**└── outputs/**
+│   ├── 13_create_end_card.py
 
-&#x20;   **├── lalibela\_horizontal.mp4**
+│   ├── 14_create_moving_shots.py
 
-&#x20;   **└── lalibela\_vertical.mp4**
+│   ├── 15_assemble_horizontal.py
 
-**```**
+│   └── 15_assemble_vertical.py
 
+├── assets/
 
+│   ├── images/
 
-**## 6. Installation**
+│   ├── video/
 
+│   ├── audio/
 
+│   └── subtitles/
 
-**Requirements:**
+├── logs/
 
+│   └── runs.jsonl
 
+└── outputs/
 
-**- Python 3.10 or newer.**
+&#x20;   ├── lalibela_horizontal.mp4
 
-**- FFmpeg installed and accessible to the production scripts.**
+&#x20;   ├── lalibela_vertical.mp4
 
-**- API credentials for the AI services when running cloud-generation stages.**
+&#x20;   ├── lalibela_radio_cut.mp4
 
+&#x20;   └── Lalibela_Final_Report.pdf
 
+```
 
-**Create and activate a virtual environment.**
 
 
+## 6. Installation
 
-**\*\*Windows:\*\***
 
 
+### Requirements
 
-**```bat**
 
-**python -m venv .venv**
 
-**.venv\\Scripts\\activate**
+- Python 3.10 or newer.
 
-**```**
+- FFmpeg installed and accessible through PATH.
 
+- API credentials for the AI services when running cloud-generation stages.
 
 
-**\*\*macOS/Linux:\*\***
 
+### Create a virtual environment
 
 
-**```bash**
 
-**python -m venv .venv**
+Windows:
 
-**source .venv/bin/activate**
 
-**```**
 
+```bat
 
+python -m venv .venv
 
-**Install Python dependencies:**
+.venv\\Scripts\\activate
 
+```
 
 
-**```bash**
 
-**python -m pip install -r requirements.txt**
+macOS/Linux:
 
-**```**
 
 
+```bash
 
-**Check FFmpeg:**
+python -m venv .venv
 
+source .venv/bin/activate
 
+```
 
-**```bash**
 
-**ffmpeg -version**
 
-**```**
+### Install dependencies
 
 
 
-**Some scripts may require the FFmpeg executable path to be configured for your operating system.**
+```bash
 
+python -m pip install -r requirements.txt
 
+```
 
-**## 7. Environment configuration**
 
 
+### Check FFmpeg
 
-**Create a local `.env` file in the project root.**
 
 
+```bash
 
-**Configure the following variables using your own API credentials:**
+ffmpeg -version
 
+```
 
 
-**```text**
 
-**CLOUDFLARE\_ACCOUNT\_ID=your\_cloudflare\_account\_id**
+If FFmpeg is installed but not available through PATH, configure its executable path using the `FFMPEG_PATH` environment variable.
 
-**CLOUDFLARE\_API\_TOKEN=your\_cloudflare\_api\_token**
 
-**GEMINI\_API\_KEY=your\_gemini\_api\_key**
 
-**```**
+## 7. Environment configuration
 
 
 
-**Never commit `.env` or expose API credentials in source code, screenshots, or public logs.**
+The repository includes `.env.example` as a template.
 
 
 
-**## 8. Storyboard validation**
+Create a local `.env` file in the project root and add your own API credentials:
 
 
 
-**Run from the project root:**
+```text
 
+GEMINI_API_KEY=your_gemini_api_key
 
+CLOUDFLARE_API_TOKEN=your_cloudflare_api_token
 
-**```bash**
+CLOUDFLARE_ACCOUNT_ID=your_cloudflare_account_id
 
-**python scripts/01\_validate\_storyboard.py**
+```
 
-**```**
 
 
+Never commit `.env` or expose API credentials in source code, screenshots, or public logs.
 
-**The validation checks:**
 
 
+The `.env` file is excluded through `.gitignore`.
 
-**- JSON loading and JSON Schema compliance.**
 
-**- Shot IDs and character references.**
 
-**- Shot timing and timeline continuity.**
+The existing generated images, narration, and music are included as project assets, so rebuilding the final videos does not require making new AI-generation API calls.
 
-**- Prompts, narration, and subtitle references.**
 
 
+## 8. Storyboard validation
 
-**A successful validation confirms that the storyboard is ready for subsequent production stages.**
 
 
+Run from the project root:
 
-**## 9. Production workflow**
 
 
+```bash
 
-**The production workflow is divided into stages:**
+python scripts/01_validate_storyboard.py
 
+```
 
 
-**1. Develop and validate the structured storyboard.**
 
-**2. Generate and review keyframe images.**
+The validation checks:
 
-**3. Prepare and generate narration.**
 
-**4. Generate background music.**
 
-**5. Assemble and inspect the narration audio.**
+- JSON loading and JSON Schema compliance.
 
-**6. Create moving shots using FFmpeg.**
+- Shot IDs and character references.
 
-**7. Add subtitles, music, and the end card.**
+- Shot timing and timeline continuity.
 
-**8. Export horizontal and vertical versions.**
+- Prompts, narration, and subtitle references.
 
 
 
-**The keyframe script includes selective regeneration, cache checks, and retry handling. Unchanged keyframes can be reused when their generation parameters match a successful run record.**
+A successful validation confirms that the storyboard is ready for subsequent production stages.
 
 
 
-**The music-generation stage was performed separately using ACE-Step 1.5. The current project is a staged production workflow; a complete one-command regeneration from a clean clone is not yet implemented.**
+## 9. Production workflow
 
 
 
-**## 10. Experiment and run records**
+The production workflow is divided into stages:
 
 
 
-**Production experiments and technical issues are documented in:**
+1. Develop and validate the structured storyboard.
 
+2. Generate and review AI keyframe images.
 
+3. Prepare and generate Amharic and English narration.
 
-**- `EXPERIMENTS.md`**
+4. Generate original background music using ACE-Step 1.5.
 
-**- `FAILURES.md`**
+5. Assemble and inspect narration audio.
 
-**- `COSTS.md`**
+6. Create moving shots using FFmpeg.
 
+7. Add subtitles, background music, and the end card.
 
+8. Export horizontal and vertical versions.
 
-**Model-generation records are stored in:**
 
 
+### One-command video rebuild
 
-**```text**
 
-**logs/runs.jsonl**
 
-**```**
+The project includes `run_pipeline.py`, which coordinates the video production stages using the generated assets included in the repository.
 
 
 
-**The log records model information, prompts, parameters, execution times, output files, and available cost information. Unknown or unverified costs are recorded as unavailable rather than estimated.**
+From the project root, run:
 
 
 
-**## 11. Ethics and cultural responsibility**
+```bash
 
+python run_pipeline.py
 
+```
 
-**The visitors and guide are fictional AI-generated characters. Synthetic narration is used rather than recordings of real people.**
 
 
+The runner:
 
-**The project aims to represent Lalibela respectfully and recognizes that AI-generated images may contain architectural inaccuracies. Generated visuals should not be treated as historical evidence.**
 
 
+- Validates the storyboard against its JSON Schema.
 
-**See `ETHICS.md` for further information about representation, AI disclosure, consent, and cultural responsibility.**
+- Checks the required storyboard, keyframe, music, and audio assets.
 
+- Prepares the English subtitles.
 
+- Reuses the existing end-card image or creates it if missing.
 
-**## 12. Documentation**
+- Creates or reuses the eight moving-shot clips.
 
+- Assembles the horizontal film.
 
+- Assembles the vertical film.
 
-**The repository includes:**
 
 
+Valid existing video assets are reused to avoid unnecessary processing.
 
-**- `DESIGN.md` — Design decisions, audience feedback, and changes.**
 
-**- `ARCHITECTURE.md` — Pipeline architecture and data flow.**
 
-**- `EXPERIMENTS.md` — Production experiments and observations.**
+To intentionally rebuild the derived video outputs, run:
 
-**- `FAILURES.md` — Technical challenges and solutions.**
 
-**- `COSTS.md` — Tools and cost considerations.**
 
-**- `ETHICS.md` — Ethical considerations and limitations.**
+```bash
 
+python run_pipeline.py --force
 
+```
 
-**## 13. Future improvements**
 
 
+Important production limitation: The runner rebuilds the videos using the existing AI-generated assets. It does not automatically regenerate the AI keyframes, narration, or ACE-Step music. Music generation was performed separately using ACE-Step 1.5. The AI image and narration generation stages can be run independently when new assets are required.
 
-**- Implement a complete one-command pipeline for clean-clone regeneration.**
 
-**- Extend caching and retry handling across all applicable production stages.**
 
-**- Improve automated model-call logging and cost tracking.**
+The keyframe and narration generation scripts include caching and retry handling. The moving-shot and video assembly stages also reuse valid existing outputs where applicable.
 
-**- Complete audience testing and document the resulting design changes.**
 
-**- Improve automated quality checks for generated media and final exports.**
 
-**## Audience Feedback Application**
+FFmpeg must be installed and accessible through PATH, or configured using `FFMPEG_PATH`.
 
 
 
-**The project includes a Python-based audience feedback application (`feedback\_app.py`) built with Tkinter.**
+## 10. Experiment and run records
 
 
 
-**### Features**
+Production experiments and technical issues are documented in:
 
 
 
-**- Plays the radio cut and final horizontal and vertical films.**
+- `EXPERIMENTS.md`
 
-**- Collects viewer responses to six questions.**
+- `FAILURES.md`
 
-**- Saves responses automatically in `outputs/audience\_feedback.csv`.**
+- `COSTS.md`
 
-**- Displays a summary of submissions and viewer suggestions.**
 
-**- Distinguishes software-test records from non-test records in the summary.**
 
+Model-generation records are stored in:
 
 
-**### How to run**
 
+```text
 
+logs/runs.jsonl
 
-**From the project root directory, activate the Python virtual environment and run:**
+```
 
 
 
-**```cmd**
+The log records model information, prompts or generation parameters, seeds where applicable, execution times, output files, status, and available cost information.
 
-**python feedback\_app.py**
 
-**```**
 
+Unknown or unverified costs are recorded as unavailable rather than estimated.
 
 
-**Select the film, enter a participant code, watch the video, answer the questions, and submit feedback.**
 
+## 11. Ethics and cultural responsibility
 
 
-**The application uses Python's built-in Tkinter, CSV, and operating-system modules.**
 
+The visitors and guide are fictional AI-generated characters. Synthetic narration is used rather than recordings of real people.
 
 
-**### Testing status**
 
+The project aims to represent Lalibela respectfully and recognizes that AI-generated images may contain architectural inaccuracies. Generated visuals should not be treated as historical evidence.
 
 
-**The application has been tested locally with a sample submission (`TEST001`). This is a software test, not actual audience feedback. Testing with at least three real viewers remains pending, and no audience-test results are claimed yet.**
 
+The film includes an AI disclosure on its end card.
+
+
+
+See `ETHICS.md` for further information about representation, AI disclosure, consent, and cultural responsibility.
+
+
+
+## 12. Documentation
+
+
+
+The repository includes:
+
+
+
+- `DESIGN.md` — Design decisions, audience feedback, and resulting design considerations.
+
+- `ARCHITECTURE.md` — Pipeline architecture and data flow.
+
+- `EXPERIMENTS.md` — Production experiments and observations.
+
+- `FAILURES.md` — Technical challenges and solutions.
+
+- `COSTS.md` — Tools and cost considerations.
+
+- `ETHICS.md` — Ethical considerations and limitations.
+
+- `FINAL_REPORT.md` — Final project report and production reflections.
+
+
+
+## 13. Future improvements
+
+
+
+- Integrate automated AI music generation into the pipeline runner.
+
+- Extend automated caching and retry handling across all applicable production stages.
+
+- Improve automated model-call logging and cost tracking.
+
+- Expand audience testing and incorporate additional viewer feedback.
+
+- Improve automated quality checks for generated media and final exports.
+
+- Improve visual accuracy and cultural representation through local heritage review.
+
+- Explore more accurate AI-generated architectural imagery and multilingual subtitle options.
+
+
+
+## 14. Audience feedback application
+
+
+
+The project includes a Python-based audience feedback application (`feedback_app.py`) built with Tkinter.
+
+
+
+### Features
+
+
+
+- Plays the radio cut and final horizontal and vertical films.
+
+- Collects viewer responses to six questions.
+
+- Saves responses automatically in `outputs/audience_feedback.csv`.
+
+- Displays a summary of submissions and viewer suggestions.
+
+- Distinguishes software-test records from actual audience feedback.
+
+
+
+### How to run
+
+
+
+From the project root directory, activate the Python virtual environment and run:
+
+
+
+```bash
+
+python feedback_app.py
+
+```
+
+
+
+Select the film, enter a participant code, watch the video, answer the questions, and submit feedback.
+
+
+
+The application uses Python's built-in Tkinter, CSV, and operating-system modules.
+
+
+
+### Audience testing status
+
+
+
+Audience feedback was collected from three participants:
+
+
+
+- P01: Reviewed the near-final film and appreciated the bilingual Amharic and English narration and script. Suggested improving the relationship between the images and the Lalibela story, reducing subtitle size, and improving language presentation.
+
+- P02: Reviewed the near-final film and understood the story's focus on the rock-hewn churches, living faith, Biete Giyorgis, and shared heritage. Suggested improving architectural accuracy, subtitle placement, and Amharic text rendering.
+
+- P03: Reviewed the radio cut and understood the general story. Suggested improving narration clarity, translation flow, and considering additional language options.
+
+
+
+P01 and P02 reviewed the near-final film, while P03 reviewed the radio cut. The three participants did not all review both versions.
+
+
+
+The software test submission (`TEST001`) is separate from these actual audience feedback records.
+
+
+
+The feedback and resulting design considerations are documented in `DESIGN.md` and `FINAL_REPORT.md`.
+
+
+
+## 15. Repository
+
+
+
+GitHub repository:
+
+https://github.com/azmeraa/lalibela-heritage-short
+
+
+
+The repository contains the project source code, storyboard, generated production assets, documentation, run records, and final video outputs.

@@ -2,7 +2,10 @@
 import base64
 import json
 import os
+import subprocess
+import sys
 import time
+import wave
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -29,6 +32,40 @@ STYLE = (
     "for an international audience. "
     "Pronounce place names carefully."
 )
+
+
+def validate_storyboard():
+    """Stop generation if storyboard validation fails."""
+    validator = PROJECT_DIR / "scripts" / "01_validate_storyboard.py"
+
+    result = subprocess.run(
+        [sys.executable, str(validator)],
+        cwd=PROJECT_DIR,
+        check=False
+    )
+
+    if result.returncode != 0:
+        raise RuntimeError(
+            "Storyboard validation failed. Narration generation stopped."
+        )
+
+    print("[PASS] Storyboard validation completed.")
+
+
+def is_valid_wav(file_path):
+    """Check that an existing audio file is a readable WAV."""
+    if not file_path.exists() or file_path.stat().st_size == 0:
+        return False
+
+    try:
+        with wave.open(str(file_path), "rb") as audio:
+            return (
+                audio.getnframes() > 0
+                and audio.getframerate() > 0
+                and audio.getnchannels() > 0
+            )
+    except (wave.Error, EOFError, OSError):
+        return False
 
 
 def write_log(scene, status, attempt, elapsed,
@@ -115,9 +152,21 @@ def generate_scene_audio(client, scene):
             if not audio_bytes:
                 raise ValueError("Decoded audio data is empty.")
 
-            elapsed = round(time.monotonic() - start_time, 2)
+            # Validate the generated audio before replacing the output.
+            temp_file = output_file.with_name(
+                output_file.stem + ".tmp.wav"
+            )
+            temp_file.write_bytes(audio_bytes)
 
-            output_file.write_bytes(audio_bytes)
+            if not is_valid_wav(temp_file):
+                temp_file.unlink(missing_ok=True)
+                raise ValueError(
+                    "Generated audio is not a valid, readable WAV file."
+                )
+
+            temp_file.replace(output_file)
+
+            elapsed = round(time.monotonic() - start_time, 2)
 
             write_log(
                 scene,
@@ -158,11 +207,6 @@ def main():
 
     validate_storyboard()
 
-    if not API_KEY:
-        raise RuntimeError(
-            "GEMINI_API_KEY not found. Check your .env file."
-        )
-
     if not SCRIPT_FILE.exists():
         raise FileNotFoundError(
             "Narration script JSON was not found."
@@ -171,23 +215,59 @@ def main():
     with SCRIPT_FILE.open("r", encoding="utf-8") as file:
         data = json.load(file)
 
+    scenes = data.get("scenes")
+
+    if not isinstance(scenes, list) or not scenes:
+        raise ValueError(
+            "Narration script contains no valid scenes."
+        )
+
     AUDIO_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Identify valid cached files and files that need generation.
+    pending_scenes = []
+
+    for scene in scenes:
+        scene_id = scene["scene_id"]
+        language = scene["language"]
+        output_file = AUDIO_DIR / f"{scene_id}_{language}.wav"
+
+        if is_valid_wav(output_file):
+            print(f"[CACHE] Reusing valid audio: {output_file.name}")
+        else:
+            if output_file.exists():
+                print(f"[CACHE MISS] Invalid audio: {output_file.name}")
+            else:
+                print(f"[MISSING] Audio needs generation: {output_file.name}")
+
+            pending_scenes.append(scene)
+
+    if not pending_scenes:
+        print("\nAll narration clips are valid and cached.")
+        print("No Gemini API calls were necessary.")
+        return
+
+    if not API_KEY:
+        raise RuntimeError(
+            "GEMINI_API_KEY not found. Check your .env file."
+        )
 
     client = genai.Client(
         api_key=API_KEY,
         http_options={"api_version": "v1beta"}
     )
 
-    print("Starting scene-by-scene narration generation.")
+    print("\nStarting scene-by-scene narration generation.")
     print(f"Model: {MODEL}")
     print(f"Voice: {VOICE}")
     print(f"Maximum attempts: {MAX_RETRIES}")
+    print(f"Clips to generate: {len(pending_scenes)}")
     print("-" * 55)
 
     successful = 0
     failed = 0
 
-    for scene in data["scenes"]:
+    for scene in pending_scenes:
 
         scene_id = scene["scene_id"]
         language = scene["language"]
@@ -212,34 +292,17 @@ def main():
 
     print("\n" + "=" * 55)
     print("NARRATION GENERATION SUMMARY")
-    print(f"Successful: {successful}")
+    print(f"Generated successfully: {successful}")
     print(f"Failed: {failed}")
-    print(f"Total scenes: {len(data['scenes'])}")
+    print(f"Reused from cache: {len(scenes) - len(pending_scenes)}")
+    print(f"Total scenes: {len(scenes)}")
     print(f"Run log: {LOG_FILE}")
 
     if failed:
         print("\nSome scenes failed. Check the run log.")
     else:
-        print("\nAll narration clips generated successfully.")
+        print("\nAll narration clips are ready.")
 
 
 if __name__ == "__main__":
     main()
-import subprocess
-import sys
-def validate_storyboard():
-    """Stop generation if storyboard validation fails."""
-    validator = PROJECT_DIR / "scripts" / "01_validate_storyboard.py"
-
-    result = subprocess.run(
-        [sys.executable, str(validator)],
-        cwd=PROJECT_DIR,
-        check=False
-    )
-
-    if result.returncode != 0:
-        raise RuntimeError(
-            "Storyboard validation failed. Narration generation stopped."
-        )
-
-    print("[PASS] Storyboard validation completed.")

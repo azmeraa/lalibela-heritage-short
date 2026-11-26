@@ -1,4 +1,6 @@
 
+import os
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -6,12 +8,14 @@ from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parent.parent
 
-FFMPEG = r"C:\ffmpeg\ffmpeg-9.1-essentials_build\bin\ffmpeg.exe"
-
 IMAGE_DIR = PROJECT / "assets" / "images"
 OUTPUT_DIR = PROJECT / "assets" / "video" / "moving_shots"
 
 VALIDATOR = PROJECT / "scripts" / "01_validate_storyboard.py"
+
+# Use an explicitly configured FFmpeg path if provided,
+# otherwise find FFmpeg through the system PATH.
+FFMPEG = os.getenv("FFMPEG_PATH") or shutil.which("ffmpeg")
 
 FPS = 25
 
@@ -46,13 +50,41 @@ def validate_storyboard():
     print("[PASS] Storyboard validation completed.")
 
 
+def is_valid_video(file_path):
+    """Check whether an existing MP4 can be decoded."""
+
+    if not file_path.exists() or file_path.stat().st_size == 0:
+        return False
+
+    try:
+        result = subprocess.run(
+            [
+                FFMPEG,
+                "-v", "error",
+                "-i", str(file_path),
+                "-f", "null",
+                "-"
+            ],
+            cwd=PROJECT,
+            capture_output=True,
+            text=True,
+            check=False
+        )
+
+        return result.returncode == 0
+
+    except OSError:
+        return False
+
+
 def main():
-    # Stop immediately if the storyboard is invalid.
+
     validate_storyboard()
 
-    if not Path(FFMPEG).exists():
+    if not FFMPEG:
         raise FileNotFoundError(
-            f"FFmpeg executable not found: {FFMPEG}"
+            "FFmpeg was not found. Install FFmpeg and add it to PATH, "
+            "or set the FFMPEG_PATH environment variable."
         )
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -65,11 +97,16 @@ def main():
 
         image = IMAGE_DIR / f"{shot_id}.jpg"
         output = OUTPUT_DIR / f"{shot_id}.mp4"
+        temporary_output = OUTPUT_DIR / f"{shot_id}.tmp.mp4"
 
-        if output.exists():
-            print(f"\n[KEEP] {shot_id}: already created")
+        if is_valid_video(output):
+            print(f"\n[CACHE] Reusing valid clip: {shot_id}")
             skipped += 1
             continue
+
+        if output.exists():
+            print(f"\n[CACHE MISS] Invalid clip: {shot_id}")
+            output.unlink()
 
         if not image.exists():
             print(f"\n[ERROR] Missing image: {image}")
@@ -104,7 +141,7 @@ def main():
             "-preset", "veryfast",
             "-crf", "20",
             "-pix_fmt", "yuv420p",
-            str(output)
+            str(temporary_output)
         ]
 
         try:
@@ -114,18 +151,26 @@ def main():
                 cwd=PROJECT
             )
 
+            if not is_valid_video(temporary_output):
+                raise RuntimeError(
+                    f"Generated video failed validation: {shot_id}"
+                )
+
+            temporary_output.replace(output)
+
             print(f"[PASS] Created: {output}")
             successful += 1
 
-        except subprocess.CalledProcessError as error:
-            print(f"[FAILED] {shot_id}: FFmpeg error {error.returncode}")
+        except (subprocess.CalledProcessError, RuntimeError, OSError) as error:
+            temporary_output.unlink(missing_ok=True)
+            print(f"[FAILED] {shot_id}: {error}")
             failed += 1
 
     print("\n========================================")
     print("MOVING SHOT GENERATION SUMMARY")
     print("========================================")
     print(f"Successfully generated: {successful}")
-    print(f"Already existing:       {skipped}")
+    print(f"Reused from cache:      {skipped}")
     print(f"Failed:                 {failed}")
 
     if failed:

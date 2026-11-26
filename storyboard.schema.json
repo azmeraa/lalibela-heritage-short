@@ -156,7 +156,8 @@
           "narration",
           "subtitle",
           "sound_design",
-          "transition_out"
+          "transition_out",
+          "story_purpose"
         ],
         "properties": {
           "shot_id": {
@@ -247,6 +248,10 @@
           },
           "transition_out": {
             "type": "string"
+          },
+          "story_purpose": {
+            "type": "string",
+            "minLength": 1
           }
         }
       }

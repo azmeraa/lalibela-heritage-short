@@ -152,13 +152,13 @@ def assemble_horizontal():
     subtitle_filter = (
         "subtitles=assets/subtitles/en.srt:"
         "force_style='FontName=Arial,"
-        "FontSize=48,"
-        "Bold=1,"
+        "FontSize=36,"
+        "Bold=0,"
         "PrimaryColour=&H00FFFFFF,"
         "OutlineColour=&H00000000,"
-        "Outline=3,"
+        "Outline=2,"
         "Shadow=1,"
-        "MarginV=55,"
+        "MarginV=75,"
         "Alignment=2'"
     )
 

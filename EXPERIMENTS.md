@@ -8,6 +8,8 @@ The experiments covered storyboard design, validation, image generation, narrati
 
 ## Experiment 1: Storyboard Structure
 
+**Hypothesis:** A structured JSON storyboard would make the eight-scene production easier to organize and maintain.
+
 **Objective:** Establish a structured production plan for the film.
 
 **Approach:** Created an eight-shot storyboard in JSON, including shot timing, characters, locations, visual prompts, and motion prompts.
@@ -17,6 +19,8 @@ The experiments covered storyboard design, validation, image generation, narrati
 **Decision:** Retained JSON as the central production contract and added JSON Schema validation.
 
 ## Experiment 2: Storyboard Validation
+
+**Hypothesis:** Automated checks would identify missing or inconsistent production information before media generation.
 
 **Objective:** Detect missing or inconsistent production information before generating media.
 
@@ -28,6 +32,8 @@ The experiments covered storyboard design, validation, image generation, narrati
 
 ## Experiment 3: AI Image Generation
 
+**Hypothesis:** FLUX.2 Klein 4B could generate usable documentary-style keyframes about Lalibela.
+
 **Objective:** Generate visual keyframes representing Lalibela and its cultural heritage.
 
 **Approach:** Used FLUX.2 Klein 4B through Cloudflare Workers AI with documentary-style prompts.
@@ -37,6 +43,8 @@ The experiments covered storyboard design, validation, image generation, narrati
 **Decision:** Selected images that supported the story and prioritized improvements to the most important scenes rather than repeatedly regenerating every image.
 
 ## Experiment 4: Character Consistency
+
+**Hypothesis:** Repeating character descriptions and clothing details would improve visual continuity.
 
 **Objective:** Maintain continuity among the fictional international visitors and Ethiopian guide.
 
@@ -48,6 +56,8 @@ The experiments covered storyboard design, validation, image generation, narrati
 
 ## Experiment 5: Amharic and English Narration
 
+**Hypothesis:** Gemini Flash TTS could generate usable narration in both Amharic and English.
+
 **Objective:** Produce bilingual narration for an international heritage audience.
 
 **Approach:** Used Gemini 3.8 Flash TTS with the Kore voice to generate Amharic and English narration clips.
@@ -57,6 +67,8 @@ The experiments covered storyboard design, validation, image generation, narrati
 **Decision:** Retained the generated narration and assembled the clips into one narration track. Further language review remains a possible improvement.
 
 ## Experiment 6: Music Generation
+
+**Hypothesis:** Generating multiple instrumental candidates would help identify a soundtrack suitable for the heritage story.
 
 **Objective:** Create an original instrumental soundtrack appropriate for a heritage documentary.
 
@@ -68,6 +80,8 @@ The experiments covered storyboard design, validation, image generation, narrati
 
 ## Experiment 7: Audio Mixing
 
+**Hypothesis:** FFmpeg mixing and sidechain compression could keep music audible without overpowering narration.
+
 **Objective:** Balance narration and background music.
 
 **Approach:** Used FFmpeg audio processing, including sidechain compression, mixing, and limiting.
@@ -77,6 +91,8 @@ The experiments covered storyboard design, validation, image generation, narrati
 **Decision:** Retained the final narration and music mix for video assembly.
 
 ## Experiment 8: Image-to-Video Alternatives
+
+**Hypothesis:** FFmpeg pan-and-zoom effects could create camera movement without a separate AI video model.
 
 **Objective:** Give still images a sense of camera movement.
 
@@ -88,6 +104,8 @@ The experiments covered storyboard design, validation, image generation, narrati
 
 ## Experiment 9: Subtitle Readability
 
+**Hypothesis:** Larger, bold subtitles with outline and shadow would improve subtitle visibility.
+
 **Objective:** Improve English subtitle readability.
 
 **Approach:** Reviewed the initial film and identified subtitle size and visibility as areas for improvement. Updated the horizontal assembly script to use larger, bold Arial subtitles with an outline and shadow.
@@ -97,6 +115,8 @@ The experiments covered storyboard design, validation, image generation, narrati
 **Decision:** Retained the revised subtitle styling while documenting further refinements as future work.
 
 ## Experiment 10: Horizontal and Vertical Outputs
+
+**Hypothesis:** The same story and source assets could be assembled into valid horizontal and vertical formats.
 
 **Objective:** Produce both required aspect ratios.
 
@@ -108,11 +128,13 @@ The experiments covered storyboard design, validation, image generation, narrati
 
 ## Experiment 11: Selective Keyframe Regeneration
 
+**Hypothesis:** Targeting one changed scene would allow its keyframe to be regenerated without selecting the other seven scenes.
+
 **Objective:** Improve the opening scene without unnecessarily regenerating all eight keyframes.
 
-**Approach:** Revised the S01 visual prompt in `storyboard.json` to request a more realistic cinematic aerial view approaching Lalibela. Configured the keyframe generation script to regenerate only S01 while preserving the other seven existing keyframes.
+**Approach:** Added "with a traditional Ethiopian highland footpath visible in the foreground" to the S01 prompt. Set `REGENERATE_ONLY = {"S01"}` so only S01 was selected.
 
-**Observation:** The first three logged generation attempts failed with HTTP 400 errors. A subsequent attempt succeeded and generated `assets/images/S01.jpg` in 8.73 seconds. The moving shot for S01 was then regenerated, while S02–S08 were reused. Both final film versions were reassembled and checked successfully.
+**Observation:** The first three logged generation attempts failed with HTTP 400 errors. A subsequent attempt succeeded and generated `assets/images/S01.jpg` in 14.1 seconds. S02–S08 were not selected and remained untouched. Both final film versions were reassembled and passed FFmpeg decoding checks.
 
 **Decision:** Retained the new S01 keyframe and selective-regeneration workflow. This demonstrated how a targeted change could be made without repeating the entire image-generation process.
 
@@ -129,4 +151,4 @@ The most important lessons were:
 - Technical success does not guarantee audience satisfaction; feedback can reveal issues that production checks do not identify.
 - Failures and limitations should be recorded honestly rather than hidden.
 
-The experiment log records technical observations and decisions. Audience findings are documented separately in `FINAL_REPORT.md` and `outputs/audience_feedback.csv`.
+The experiment log records hypotheses, technical observations, and decisions. Audience findings are summarized in `FINAL_REPORT.md`; the current CSV contains P04's raw response and the separate TEST001 software-test record.

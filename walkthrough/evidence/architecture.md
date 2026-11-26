@@ -252,4 +252,4 @@
 
 
 
-**The sample participant `TEST001` is a software test record, not a real audience participant. Actual audience testing with three viewers remains pending. The system is intended to support the collection and analysis of genuine viewer feedback.**
+**The sample participant `TEST001` is a software test record, not a real audience participant. The current CSV preserves P04's genuine near-final-film response; the report also contains earlier summaries for P01 and P02 (near-final film) and P03 (radio cut), but their raw responses are not present in the current CSV. These summaries should not be treated as recoverable raw survey records. The documented near-final feedback therefore covers three viewers, while the radio-cut feedback covers one viewer; two additional radio-cut reviews are still needed to reach the target of three. The feedback application supports further collection and analysis of genuine viewer responses.**

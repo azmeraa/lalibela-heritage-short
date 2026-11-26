@@ -1,0 +1,29 @@
+Welcome. My name is Azmera Abebe, and this is my project, Lalibela: A Story Carved in Stone.
+
+I developed this project to explore how artificial intelligence and software automation can help tell stories about Ethiopia's cultural heritage.
+
+The goal was to create a short, bilingual heritage film introducing Lalibela to an international audience, while building a reproducible production workflow rather than creating every element manually.
+
+The pipeline begins with a structured storyboard. The storyboard.json file defines the eight scenes, their timing, visual prompts, narration in Amharic and English, subtitles, and creative purpose. A JSON Schema and additional Python checks validate the storyboard before production.
+
+For visual generation, I used FLUX.2 Klein 4B through Cloudflare Workers AI. The generated keyframes were then processed with FFmpeg to create slow pan-and-zoom camera movements. I considered Wan 2.2 image-to-video generation, but selected FFmpeg as a practical alternative within the available time and technical constraints.
+
+For narration, I used Gemini text-to-speech to generate Amharic and English audio. I used ACE-Step 1.5 to create original background music. FFmpeg combines the narration, music, subtitles, moving shots, and end card into the final film.
+
+An important engineering decision was to keep the creative source separate from the production scripts. This makes it possible to change a storyboard prompt and regenerate selected assets without rebuilding the entire project.
+
+I also encountered real generation failures. During an earlier S01 image-generation attempt, three API requests returned HTTP 400 errors before a later attempt succeeded. These events are recorded in the run log rather than hidden.
+
+Now I will demonstrate selective regeneration.
+
+The regeneration configuration selects only S01. I changed its image prompt by adding a traditional Ethiopian highland footpath in the foreground. After validating the storyboard, I ran the keyframe-generation script again.
+
+The result was one successful S01 generation in 14.1 seconds. The run log records the updated prompt, model, seed, latency, and output file. The other seven scenes were not selected, so they remained untouched. This demonstrates how a targeted creative change can be made without rerunning the full image-generation stage.
+
+The project also includes an audience-feedback application built with Python and Tkinter. It supports video playback, structured responses, CSV storage, and a feedback summary. Test records are separated from genuine participant feedback. Audience comments helped identify areas to review, including visual presentation, narration clarity, music balance, and subtitle accessibility.
+
+The final film is approximately 89 seconds long. It is available in two formats: horizontal at 1920 by 1080, and vertical at 1080 by 1920. Both outputs were checked with FFprobe and decoded successfully with FFmpeg.
+
+This project taught me that AI content generation is not simply about producing images or audio. It requires structured planning, validation, experimentation, troubleshooting, audience feedback, and honest technical decisions.
+
+The result is both a heritage film and a small, documented AI production pipeline. Thank you for watching.

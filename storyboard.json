@@ -1,4 +1,3 @@
-
 {
   "project": {
     "title": "Lalibela: A Story Carved in Stone",
@@ -7,7 +6,10 @@
     "location": "Lalibela, Ethiopia",
     "target_audience": "International audience",
     "target_duration_seconds": 85,
-    "narration_languages": ["am", "en"],
+    "narration_languages": [
+      "am",
+      "en"
+    ],
     "subtitle_language": "en",
     "visual_style": "Photorealistic, respectful documentary style",
     "output_formats": [
@@ -68,7 +70,7 @@
       "location_visual": "Ethiopian highlands near Lalibela",
       "camera": "Wide aerial establishing shot, slowly advancing over the landscape.",
       "action": "Morning sunlight reveals the rugged highlands and establishes the journey toward Lalibela.",
-      "image_prompt": "Photorealistic cinematic documentary aerial view approaching the historic town of Lalibela in the Ethiopian highlands at sunrise, distant traditional stone buildings and rugged mountain landscape, warm natural golden light, authentic Ethiopian setting, realistic terrain, atmospheric depth, wide documentary composition, no text, no watermark.",
+      "image_prompt": "Photorealistic cinematic documentary aerial view approaching the historic town of Lalibela in the Ethiopian highlands at sunrise, distant traditional stone buildings and rugged mountain landscape, warm natural golden light, authentic Ethiopian setting, realistic terrain, atmospheric depth, wide documentary composition with a traditional Ethiopian highland footpath visible in the foreground, no text, no watermark.",
       "motion_prompt": "A drone-like camera slowly advances over the Ethiopian highlands as morning light reveals the landscape. Keep movement smooth and realistic; do not distort the terrain.",
       "narration": {
         "language": "am",
@@ -79,7 +81,8 @@
         "text": "People travel from different corners of the world to discover Ethiopia's remarkable history."
       },
       "sound_design": "Gentle wind ambience and soft original instrumental music.",
-      "transition_out": "Slow cinematic fade."
+      "transition_out": "Slow cinematic fade.",
+      "story_purpose": "Establish Ethiopia's highland landscape and introduce the journey toward Lalibela."
     },
     {
       "shot_id": "S02",
@@ -87,7 +90,11 @@
       "end_seconds": 20,
       "duration_seconds": 10,
       "title": "First sight of Lalibela",
-      "characters": ["visitor_jp", "visitor_br", "visitor_eu"],
+      "characters": [
+        "visitor_jp",
+        "visitor_br",
+        "visitor_eu"
+      ],
       "location_visual": "Public viewpoint overlooking Lalibela's rock-hewn churches",
       "camera": "Wide reveal followed by a medium shot of the three visitors.",
       "action": "The visitors look toward the churches with expressions of amazement, remaining in a public viewing area.",
@@ -102,7 +109,8 @@
         "text": "What awaits them in Lalibela is beyond what they imagined."
       },
       "sound_design": "Outdoor ambience; instrumental music grows gently.",
-      "transition_out": "Cut to carved stone details."
+      "transition_out": "Cut to carved stone details.",
+      "story_purpose": "Create an emotional connection by showing international visitors discovering Lalibela."
     },
     {
       "shot_id": "S03",
@@ -125,7 +133,8 @@
         "text": "These extraordinary churches were carved directly from solid rock."
       },
       "sound_design": "Subtle outdoor ambience and restrained instrumental music.",
-      "transition_out": "Gentle cut to a rock-cut passage."
+      "transition_out": "Gentle cut to a rock-cut passage.",
+      "story_purpose": "Reveal the craftsmanship and distinctive character of the rock-hewn architecture."
     },
     {
       "shot_id": "S04",
@@ -133,7 +142,12 @@
       "end_seconds": 40,
       "duration_seconds": 10,
       "title": "History and human vision",
-      "characters": ["guide_et", "visitor_jp", "visitor_br", "visitor_eu"],
+      "characters": [
+        "guide_et",
+        "visitor_jp",
+        "visitor_br",
+        "visitor_eu"
+      ],
       "location_visual": "Rock-cut passage or publicly accessible church surroundings",
       "camera": "Smooth forward movement through a passage, then a medium group composition.",
       "action": "The local guide gestures toward the architecture while the visitors listen attentively.",
@@ -148,7 +162,8 @@
         "text": "Traditionally linked to King Lalibela, the site was conceived as a symbolic New Jerusalem."
       },
       "sound_design": "Warm instrumental layer with a subtle emotional rise.",
-      "transition_out": "Gentle dissolve to the living community."
+      "transition_out": "Gentle dissolve to the living community.",
+      "story_purpose": "Introduce local interpretation and provide historical context for the churches."
     },
     {
       "shot_id": "S05",
@@ -171,7 +186,8 @@
         "text": "Today, Lalibela remains a living place of worship, pilgrimage and devotion."
       },
       "sound_design": "Gentle natural ambience; do not fabricate identifiable ceremony or liturgical audio.",
-      "transition_out": "Cut to the aerial reveal of Biete Ghiorgis."
+      "transition_out": "Cut to the aerial reveal of Biete Ghiorgis.",
+      "story_purpose": "Show that Lalibela remains a living place of worship and pilgrimage."
     },
     {
       "shot_id": "S06",
@@ -179,7 +195,11 @@
       "end_seconds": 60,
       "duration_seconds": 10,
       "title": "The Church of Saint George",
-      "characters": ["visitor_jp", "visitor_br", "visitor_eu"],
+      "characters": [
+        "visitor_jp",
+        "visitor_br",
+        "visitor_eu"
+      ],
       "location_visual": "Biete Ghiorgis, Lalibela",
       "camera": "Elevated aerial reveal moving slowly toward the church; optional visitor reaction shot.",
       "action": "Biete Ghiorgis appears in its distinctive cross-shaped form. Visitors admire it from a permitted viewing area.",
@@ -194,7 +214,8 @@
         "text": "Among them, Biete Ghiorgis stands out with its remarkable cross-shaped design."
       },
       "sound_design": "Music reaches a gentle emotional high point.",
-      "transition_out": "Dissolve to the visitors and local guide."
+      "transition_out": "Dissolve to the visitors and local guide.",
+      "story_purpose": "Highlight Biete Ghiorgis and its distinctive cross-shaped rock-hewn design."
     },
     {
       "shot_id": "S07",
@@ -202,7 +223,12 @@
       "end_seconds": 72,
       "duration_seconds": 12,
       "title": "Different cultures, shared heritage",
-      "characters": ["guide_et", "visitor_jp", "visitor_br", "visitor_eu"],
+      "characters": [
+        "guide_et",
+        "visitor_jp",
+        "visitor_br",
+        "visitor_eu"
+      ],
       "location_visual": "Public visitor area near the rock-hewn churches",
       "camera": "Medium group shot followed by natural reaction close-ups.",
       "action": "The guide shares the story of Lalibela. The visitors listen, smile and appreciate the architecture.",
@@ -217,7 +243,8 @@
         "text": "People from different cultures and languages come together through this shared human heritage."
       },
       "sound_design": "Warm, uplifting instrumental music under the narration.",
-      "transition_out": "Slow dissolve to the final landscape."
+      "transition_out": "Slow dissolve to the final landscape.",
+      "story_purpose": "Express the central theme of cultural exchange and shared human heritage."
     },
     {
       "shot_id": "S08",
@@ -240,7 +267,8 @@
         "text": "Lalibela: Ethiopia's pride, a heritage of the world, and a living story for generations to come."
       },
       "sound_design": "Music resolves gently and fades out beneath the final narration.",
-      "transition_out": "Fade to black after the end card."
+      "transition_out": "Fade to black after the end card.",
+      "story_purpose": "Conclude with a memorable view of Lalibela and reinforce the heritage message."
     }
   ]
 }

@@ -1,38 +1,29 @@
 LALIBELA — SELECTIVE S01 REGENERATION
-=======================================================
+====================================
 
-UPDATED S01 STORYBOARD ENTRY
-{
-  "shot_id": "S01",
-  "start_seconds": 0,
-  "end_seconds": 10,
-  "duration_seconds": 10,
-  "title": "Discovering Ethiopia",
-  "characters": [],
-  "location_visual": "Ethiopian highlands near Lalibela",
-  "camera": "Wide aerial establishing shot, slowly advancing over the landscape.",
-  "action": "Morning sunlight reveals the rugged highlands and establishes the journey toward Lalibela.",
-  "image_prompt": "Photorealistic cinematic documentary aerial view approaching the historic town of Lalibela in the Ethiopian highlands at sunrise, distant traditional stone buildings and rugged mountain landscape, warm natural golden light, authentic Ethiopian setting, realistic terrain, atmospheric depth, wide documentary composition, no text, no watermark.",
-  "motion_prompt": "A drone-like camera slowly advances over the Ethiopian highlands as morning light reveals the landscape. Keep movement smooth and realistic; do not distort the terrain.",
-  "narration": {
-    "language": "am",
-    "text": "ከዓለም የተለያዩ አቅጣጫዎች፣ ሰዎች የኢትዮጵያን ታሪክ ለማወቅ ይጓዛሉ።"
-  },
-  "subtitle": {
-    "language": "en",
-    "text": "People travel from different corners of the world to discover Ethiopia's remarkable history."
-  },
-  "sound_design": "Gentle wind ambience and soft original instrumental music.",
-  "transition_out": "Slow cinematic fade."
-}
+CHANGE
+Added this detail to the S01 image prompt:
+"with a traditional Ethiopian highland footpath visible in the foreground"
 
-REGENERATION CONFIGURATION
-Line 31: REGENERATE_ONLY = {"S01"}
-Line 267: if shot_id not in REGENERATE_ONLY:
+REGENERATION CONTROL
+REGENERATE_ONLY = {"S01"}
+The generator's selection condition skips shots not in this set.
 
-ALL S01 KEYFRAME API ATTEMPTS
-{"timestamp": "2026-11-25T08:41:04.500029+00:00", "stage": "keyframes", "shot_id": "S01", "model": "@cf/black-forest-labs/flux-2-klein-4b", "parameters": {"width": 1024, "height": 576, "seed": 4243}, "prompt": "A highly realistic travel documentary photograph of the Ethiopian highlands near Lalibela, Ethiopia, at sunrise. Authentic northern Ethiopian landscape with rugged rocky mountains, dry natural hills, deep valleys and distant mountain ridges. Subtle early morning golden sunlight, soft realistic atmospheric haze, natural earthy brown, ochre and muted green colors. Geographically believable Ethiopian highland terrain, photographed with a professional documentary camera. Natural photographic composition, realistic details, no fantasy scenery, no exaggerated mountains, no artificial lighting, no oversaturated colors, no illustration, no painting, no text, no watermark.", "latency_seconds": 11.36, "cost_usd": null, "status": "success", "output": "assets\\images\\S01.jpg", "seed": 4243, "scene_id": "S01"}
-{"timestamp": "2026-11-26T07:38:01.319318+00:00", "stage": "keyframe", "scene_id": "S01", "model": "@cf/black-forest-labs/flux-2-klein-4b", "prompt": "Photorealistic cinematic documentary aerial view approaching the historic town of Lalibela in the Ethiopian highlands at sunrise, distant traditional stone buildings and rugged mountain landscape, warm natural golden light, authentic Ethiopian setting, realistic terrain, atmospheric depth, wide documentary composition, no text, no watermark.", "parameters": {"width": 1920, "height": 1080, "seed": 382352125}, "seed": 382352125, "latency_seconds": 0.3, "cost_usd": null, "attempt": 1, "status": "failed", "error": "400 Client Error: Bad Request for url: https://api.cloudflare.com/client/v4/accounts/0f61947a788aa8a59c85ba00063051a9/ai/run/@cf/black-forest-labs/flux-2-klein-4b"}
-{"timestamp": "2026-11-26T07:38:03.420215+00:00", "stage": "keyframe", "scene_id": "S01", "model": "@cf/black-forest-labs/flux-2-klein-4b", "prompt": "Photorealistic cinematic documentary aerial view approaching the historic town of Lalibela in the Ethiopian highlands at sunrise, distant traditional stone buildings and rugged mountain landscape, warm natural golden light, authentic Ethiopian setting, realistic terrain, atmospheric depth, wide documentary composition, no text, no watermark.", "parameters": {"width": 1920, "height": 1080, "seed": 382352125}, "seed": 382352125, "latency_seconds": 0.1, "cost_usd": null, "attempt": 2, "status": "failed", "error": "400 Client Error: Bad Request for url: https://api.cloudflare.com/client/v4/accounts/0f61947a788aa8a59c85ba00063051a9/ai/run/@cf/black-forest-labs/flux-2-klein-4b"}
-{"timestamp": "2026-11-26T07:38:07.498236+00:00", "stage": "keyframe", "scene_id": "S01", "model": "@cf/black-forest-labs/flux-2-klein-4b", "prompt": "Photorealistic cinematic documentary aerial view approaching the historic town of Lalibela in the Ethiopian highlands at sunrise, distant traditional stone buildings and rugged mountain landscape, warm natural golden light, authentic Ethiopian setting, realistic terrain, atmospheric depth, wide documentary composition, no text, no watermark.", "parameters": {"width": 1920, "height": 1080, "seed": 382352125}, "seed": 382352125, "latency_seconds": 0.08, "cost_usd": null, "attempt": 3, "status": "failed", "error": "400 Client Error: Bad Request for url: https://api.cloudflare.com/client/v4/accounts/0f61947a788aa8a59c85ba00063051a9/ai/run/@cf/black-forest-labs/flux-2-klein-4b"}
-{"timestamp": "2026-11-26T07:48:14.032873+00:00", "stage": "keyframe", "scene_id": "S01", "model": "@cf/black-forest-labs/flux-2-klein-4b", "prompt": "Photorealistic cinematic documentary aerial view approaching the historic town of Lalibela in the Ethiopian highlands at sunrise, distant traditional stone buildings and rugged mountain landscape, warm natural golden light, authentic Ethiopian setting, realistic terrain, atmospheric depth, wide documentary composition, no text, no watermark.", "parameters": {"width": 1920, "height": 1080, "seed": 382956408}, "seed": 382956408, "latency_seconds": 8.73, "cost_usd": null, "attempt": 1, "status": "success", "output": "assets\\images\\S01.jpg"}
+VALIDATION
+The updated storyboard passed validation before generation.
+
+LATEST RUN
+Model: @cf/black-forest-labs/flux-2-klein-4b
+Scene: S01
+Status: success
+Latency: 14.1 seconds
+Seed: 406106886
+Output: assets/images/S01.jpg
+Cost: not recorded
+
+RESULT
+One successful S01 generation was recorded in logs/runs.jsonl.
+S02–S08 were not selected and remained untouched.
+The new S01 image was reviewed and accepted for the final film.
+
+This evidence describes the latest run, not the earlier S01 attempt.

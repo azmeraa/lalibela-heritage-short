@@ -106,7 +106,7 @@ def main():
         "[background]"
         "scale=1080:1920:force_original_aspect_ratio=increase,"
         "crop=1080:1920,"
-        "boxblur=20:10[background_blurred];"
+        "boxblur=8:4,eq=brightness=-0.10:saturation=0.75[background_blurred];"
         "[foreground]"
         "scale=1080:1920:force_original_aspect_ratio=decrease"
         "[foreground_scaled];"

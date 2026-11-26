@@ -82,7 +82,7 @@ The final film exports and project report are available in `outputs/`.
 
 | `outputs/lalibela_vertical.mp4` | Vertical 9:16 film |
 
-| `outputs/lalibela_radio_cut.mp4` | Radio cut with narration and placeholder music |
+| `outputs/lalibela_radio_cut.mp4` | Radio cut with narration and background music (evaluation version) |
 
 | `outputs/Lalibela_Final_Report.pdf` | Final project report |
 

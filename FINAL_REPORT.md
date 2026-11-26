@@ -62,7 +62,7 @@ I encountered technical problems with AI model configuration, audio file formats
 
 For example, FFmpeg initially encountered problems with the Windows drive-letter colon in the subtitle filter path. I resolved this by using a project-relative subtitle path.
 
-Another challenge occurred when I revised the opening scene, S01, and attempted to regenerate its keyframe. The first three logged attempts failed with HTTP 400 errors. A subsequent attempt succeeded, generating the new keyframe in 8.73 seconds.
+Another challenge occurred when I revised the opening scene, S01, and attempted to regenerate its keyframe. The first three logged attempts failed with HTTP 400 errors. A subsequent attempt succeeded, generating the new keyframe in 14.1 seconds. The other seven scenes (S02–S08) were not selected for regeneration.
 
 I configured the generation process to target S01 rather than regenerate all eight keyframes. I then regenerated its moving shot while reusing the other seven moving shots. Both final film formats were reassembled and passed FFmpeg decoding checks.
 
@@ -83,7 +83,7 @@ The available successful-request measurements were:
 
 The narration requests used `gemini-3.8-flash-tts` with the Kore voice. Their average recorded latency was approximately 13.91 seconds per request.
 
-The keyframe requests used Cloudflare Workers AI with `@cf/black-forest-labs/flux-2-klein-4b`. The final S01 regeneration succeeded in 8.73 seconds after three failed HTTP 400 attempts.
+The keyframe requests used Cloudflare Workers AI with `@cf/black-forest-labs/flux-2-klein-4b`. The final S01 regeneration succeeded in 14.1 seconds after three failed HTTP 400 attempts. S02–S08 were not selected and remained untouched.
 
 These figures represent recorded model-request latency, not total production time. The logs do not provide verified monetary API charges, GPU-minutes, electricity consumption, or total development hours. Therefore, I do not claim an exact total production cost or an unsupported list-price equivalent.
 
@@ -134,6 +134,12 @@ P02 understood the film as an introduction to Lalibela's rock-hewn churches, liv
 
 P02 also identified stylized or inaccurate AI-generated architectural details, especially around Biete Giyorgis. Further suggestions included using an Ethiopic-compatible font for the Amharic end card, improving subtitle placement, refining an Amharic narration phrase, and using more authentic architectural and cultural references.
 
+**P04 — Near-final film**
+
+P04 understood Lalibela as a historic destination with rock-hewn churches, living faith, Biete Giorgis, and shared heritage. The participant found the Amharic and English narration clear, calm, and well-paced, while suggesting greater consistency between the two languages. The soft, reflective music complemented the narration. The participant highlighted the New Jerusalem concept and Biete Giorgis' shape as memorable points for audiences new to Lalibela.
+
+P04 also reported that the visuals appeared black during viewing and recommended checking the export, refining abstract visual wording, improving bilingual consistency and captions, and balancing music transitions. After this feedback, the final horizontal and vertical exports were decoded successfully with FFmpeg, and sampled frames from both versions visibly showed Lalibela. This verifies the local files and sampled frames, but does not establish what happened on the participant's playback device.
+
 **P03 — Radio cut**
 
 P03 understood that the audio presented a general overview of Lalibela's churches. The participant reported no new learning, found the narration insufficiently clear, and considered the background music comfortable. Suggestions included improving translation and narration flow and considering additional languages such as French or Arabic.
@@ -146,7 +152,7 @@ It also identified opportunities to improve visual accuracy, subtitle presentati
 
 English subtitles were retained because they are a required project deliverable. Suggestions that were not implemented during the production period are documented as future improvements rather than claimed as completed changes.
 
-At the time of this report, two participants had reviewed the near-final film and one had reviewed the radio cut. The assignment target is at least three audience participants for each version, so the audience-testing requirement is not yet fully met. Two additional reviewers have been contacted, and their feedback is pending. Their responses will be added when received.
+The report documents three near-final-film reviews (P01, P02, and P04) and one radio-cut review (P03). However, the current `outputs/audience_feedback.csv` preserves only P04's genuine raw response; the P01–P03 feedback is available as written summaries in this report, and their original raw survey responses were not found in the project files. The separate `TEST001` entry is a software-test record and is excluded from participant counts. The documented near-final reviews reach the target of three, but the radio-cut review count remains one against a target of three. Two additional reviewers had previously been contacted; their responses should be collected and retained as raw records.
 
 ## 8. What I Would Do With More Time
 
@@ -167,9 +173,9 @@ With additional time and resources, I would:
 
 The remaining submission activities are to:
 
-- Complete the outstanding audience reviews and update the feedback records.
+- Collect at least two more radio-cut reviews and preserve all new raw responses in the feedback CSV.
 - Regenerate and verify the final report PDF after report updates.
-- Record the required project walkthrough within the five-minute limit.
+- Upload and verify the completed 3-minute-32-second narrated project walkthrough.
 - Confirm that the vertical film, horizontal film, walkthrough, and public post are accessible to the graders.
 - Publish the required public post with the appropriate AI disclosure.
 - Perform a final review of the public GitHub repository and submission links.
@@ -185,4 +191,4 @@ The project also demonstrates the potential of AI-generated content to introduce
 ---
 
 **Project title:** Lalibela: A Story Carved in Stone  
-**Status:** Film production completed; three genuine audience reviews collected (two near-final film reviews and one radio-cut review); additional audience feedback pending; public GitHub repository created; final submission activities in progress.
+**Status:** Film production and the 3-minute-32-second narrated walkthrough completed; three near-final-film reviews and one radio-cut review documented; only P04's raw response is preserved in the current CSV; additional radio-cut reviews and public-post/submission steps remain outstanding; public GitHub repository created.

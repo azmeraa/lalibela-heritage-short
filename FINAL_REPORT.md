@@ -1,224 +1,148 @@
-**# Final Project Report**
+# Final Project Report
 
-**## Lalibela: A Story Carved in Stone**
+## Lalibela: A Story Carved in Stone
 
+**Project:** AI-Content Generation – The Heritage Short  
+**Creator:** Independent AI content creator  
+**Location:** Ethiopia  
+**Project date:** November 2026  
 
+---
 
-**\*\*Project:\*\* AI-Content Generation – The Heritage Short**  
+## 1. Project Overview
 
-**\*\*Creator:\*\* Independent AI content creator**  
+I created an AI-generated heritage short titled *Lalibela: A Story Carved in Stone*. The film introduces the historical, architectural, spiritual, and cultural importance of Lalibela, Ethiopia, to an international audience.
 
-**\*\*Location:\*\* Ethiopia**  
+The intended audience includes international visitors and people interested in Ethiopian history and cultural heritage.
 
-**\*\*Project date:\*\* November 2026**
+The film uses eight scenes, combining AI-generated images, camera movement, narration in Amharic and English, English subtitles, original background music, and an AI-generated end card.
 
+The final film is approximately 89 seconds long and is available in vertical and horizontal formats.
 
+## 2. What I Created
 
-**---**
+The project includes:
 
+- Eight AI-generated visual keyframes.
+- An eight-shot storyboard stored in JSON.
+- A JSON Schema for storyboard validation.
+- Amharic and English AI-generated narration.
+- English subtitles.
+- Original AI-generated background music.
+- Audio mixing with background music ducked under narration.
+- Eight moving shots created using FFmpeg pan-and-zoom effects.
+- Horizontal and vertical MP4 films.
+- A radio cut containing narration and background music over a black screen.
+- An AI-generated end card.
+- Project documentation and a Python audience feedback application.
+- A public GitHub repository containing the source code, assets, documentation, and video outputs.
 
+## 3. Development Process and Learning
 
-**## 1. Project Overview**
+I learned how different AI and software tools can work together to produce a complete multimedia story.
 
+The development process included story planning, storyboard validation, image generation, narration generation, music creation, audio mixing, video editing, subtitle integration, and final video production.
 
+I also learned the importance of organizing project files, validating structured data, testing individual stages, and documenting technical decisions.
 
-**I created an AI-generated heritage short titled \*Lalibela: A Story Carved in Stone\*. The film introduces the historical, architectural, spiritual, and cultural importance of Lalibela, Ethiopia, to an international audience.**
+Developing the Python feedback application helped me understand how software can support the evaluation of AI-generated content.
 
+The project also demonstrated that AI-generated heritage storytelling requires attention to cultural accuracy, language quality, visual consistency, and audience understanding—not just technical production.
 
+## 4. Hardest Technical Challenge
 
-**The intended audience includes international visitors and people interested in Ethiopian history and cultural heritage.**
+One of the hardest challenges was integrating different AI-generated assets and production tools into a working video pipeline.
 
+I encountered technical problems with AI model configuration, audio file formats, FFmpeg filter paths on Windows, and video rendering.
 
+For example, FFmpeg initially encountered problems with the Windows drive-letter colon in the subtitle filter path. I resolved this by using a project-relative subtitle path.
 
-**The film uses eight scenes, combining AI-generated images, camera movement, narration in Amharic and English, English subtitles, original background music, and an AI-generated end card.**
+I also used FFmpeg to create camera movement from still images when full AI video generation was not practical within the available time and computing resources.
 
+These experiences taught me to solve problems systematically and validate each production stage.
 
+## 5. Practices That Helped and Did Not Help
 
-**The final film is approximately 89 seconds long and is available in vertical and horizontal formats.**
+### Practices that helped
 
+- Breaking the production process into smaller stages.
+- Validating the storyboard before generating assets.
+- Testing individual images and audio clips before assembling the film.
+- Keeping generated assets organized.
+- Using FFmpeg for reliable audio and video processing.
+- Documenting technical problems and solutions.
 
+### Practices that were less effective
 
-**## 2. What I Created**
+Attempting to use more complex AI video generation was not practical within the available development time and computing resources.
 
+The project therefore used FFmpeg pan-and-zoom animation as a fallback. This allowed the film to include moving shots without relying on expensive or difficult video-generation infrastructure.
 
+## 6. Audience Evaluation
 
-**The project includes:**
+A Python-based audience feedback application was developed using Tkinter.
 
+The application allows viewers to play the radio cut and final film versions, answer six questions, and save responses in a CSV file. It also provides a feedback summary.
 
+The application was tested locally using a sample response with participant code `TEST001`. The software successfully saved the response and identified it as a test record. This software-test entry is separate from genuine audience feedback.
 
-**- Eight AI-generated visual keyframes.**
+### Actual audience feedback
 
-**- An eight-shot storyboard stored in JSON.**
+Three participants provided genuine feedback:
 
-**- A JSON Schema for storyboard validation.**
+**P01 — Near-final film**
 
-**- Amharic and English AI-generated narration.**
+P01 appreciated the bilingual Amharic and English presentation and the script. The participant recommended improving images that did not clearly match Lalibela, reducing subtitle size and moving subtitles to the bottom, adding Amharic text alongside English narration, and exploring Addis AI Amharic voices.
 
-**- English subtitles.**
+**P02 — Near-final film**
 
-**- Original AI-generated background music.**
+P02 understood the film as an introduction to Lalibela's rock-hewn churches, living religious traditions, and shared heritage. The participant appreciated the bilingual storytelling, narration, music, and closing message.
 
-**- Audio mixing with background music ducked under narration.**
+P02 also identified stylized or inaccurate AI-generated architectural details, especially around Biete Giyorgis. Further suggestions included using an Ethiopic-compatible font for the Amharic end card, improving subtitle placement, refining an Amharic narration phrase, and using more authentic architectural and cultural references.
 
-**- Eight moving shots created using FFmpeg pan-and-zoom effects.**
+**P03 — Radio cut**
 
-**- Horizontal and vertical MP4 films.**
+P03 understood that the audio presented a general overview of Lalibela's churches. The participant reported no new learning, found the narration insufficiently clear, and considered the background music comfortable. Suggestions included improving translation and narration flow and considering additional languages such as French or Arabic.
 
-**- An AI-generated end card.**
+### What I learned from the feedback
 
-**- Project documentation and a Python audience feedback application.**
+The feedback highlighted strengths in bilingual storytelling, the script, background music, and the shared-heritage message.
 
+It also identified opportunities to improve visual accuracy, subtitle presentation, Amharic text rendering, narration clarity, and translation quality.
 
+English subtitles were retained because they are a required project deliverable. Suggestions that were not implemented during the production period are documented as future improvements rather than claimed as completed changes.
 
-**## 3. Development Process and Learning**
+The documented responses cover two near-final film reviews and one radio-cut review. They do not establish that every participant reviewed both versions.
 
+## 7. What I Would Do With More Time
 
+With additional time and resources, I would:
 
-**I learned how different AI and software tools can work together to produce a complete multimedia story.**
+- Improve the realism and consistency of AI-generated visual scenes.
+- Use more reliable historical references for Lalibela's architecture.
+- Explore more advanced image-to-video generation.
+- Obtain feedback from Ethiopian heritage and language experts.
+- Improve subtitle size, placement, and Amharic text rendering.
+- Explore alternative Amharic TTS voices and improve narration flow.
+- Test additional language options for international audiences.
+- Improve the automated production pipeline.
+- Improve the feedback application with more detailed analysis.
 
+## 8. Next Steps
 
+The next steps are to finalize and verify the public GitHub repository, prepare the required project walkthrough, publish accessible links to the vertical and horizontal films, and share the project publicly as required by the assignment.
 
-**The development process included story planning, storyboard validation, image generation, narration generation, music creation, audio mixing, video editing, subtitle integration, and final video production.**
+Further improvements to the film and production pipeline can follow after submission.
 
+## 9. Conclusion
 
+This project demonstrates how AI tools can support the creation of a short cultural heritage film using accessible technologies and a structured production workflow.
 
-**I also learned the importance of organizing project files, validating structured data, testing individual stages, and documenting technical decisions.**
+Through this work, I gained practical experience in AI-assisted storytelling, multimedia production, software integration, technical problem-solving, and audience evaluation.
 
+The project also demonstrates the potential of AI-generated content to introduce Ethiopia's cultural heritage to international audiences while highlighting the importance of cultural respect, accuracy, and audience feedback.
 
+---
 
-**Developing the Python feedback application helped me understand how software can support the evaluation of AI-generated content.**
-
-
-
-**## 4. Hardest Technical Challenge**
-
-
-
-**One of the hardest challenges was integrating different AI-generated assets and production tools into a working video pipeline.**
-
-
-
-**I encountered technical problems with AI model configuration, audio file formats, FFmpeg filter paths on Windows, and video rendering.**
-
-
-
-**For example, FFmpeg initially encountered problems with the Windows drive-letter colon in the subtitle filter path. I resolved this by using a project-relative subtitle path.**
-
-
-
-**I also used FFmpeg to create camera movement from still images when full AI video generation was not practical within the available time.**
-
-
-
-**These experiences taught me to solve problems systematically and validate each production stage.**
-
-
-
-**## 5. Practices That Helped and Did Not Help**
-
-
-
-**### Practices that helped**
-
-
-
-**- Breaking the production process into smaller stages.**
-
-**- Validating the storyboard before generating assets.**
-
-**- Testing individual images and audio clips before assembling the film.**
-
-**- Keeping generated assets organized.**
-
-**- Using FFmpeg for reliable audio and video processing.**
-
-
-
-**### Practices that were less effective**
-
-
-
-**Attempting to use more complex AI video generation was not practical within the available development time and computing resources.**
-
-
-
-**The project therefore used FFmpeg pan-and-zoom animation as a fallback. This allowed the film to meet its moving-shot requirement without relying on expensive or difficult video-generation infrastructure.**
-
-
-
-**## 6. Audience Evaluation**
-
-
-
-**A Python-based audience feedback application was developed using Tkinter.**
-
-
-
-**The application allows viewers to play the radio cut and final film versions, answer six questions, and save responses in a CSV file. It also provides a feedback summary.**
-
-
-
-**The application was tested locally using a sample response with participant code `TEST001`. The software successfully saved the response and identified it as a test record.**
-
-
-
-**\*\*Actual audience testing with at least three real viewers remains pending.\*\* Therefore, no real audience findings or resulting design changes are claimed in this report.**
-
-
-
-**## 7. What I Would Do With More Time**
-
-
-
-**With additional time and resources, I would:**
-
-
-
-**- Improve the realism and consistency of AI-generated visual scenes.**
-
-**- Explore more advanced image-to-video generation.**
-
-**- Obtain feedback from Ethiopian heritage experts.**
-
-**- Complete audience testing and document resulting improvements.**
-
-**- Improve the automated production pipeline.**
-
-**- Conduct additional subtitle and audio quality checks.**
-
-**- Improve the feedback application with more detailed analysis.**
-
-
-
-**## 8. Next Steps**
-
-
-
-**The next steps are to complete audience testing, incorporate genuine feedback, finalize project documentation, publish the source code in a public GitHub repository, and prepare the required project walkthrough and public film links.**
-
-
-
-**## 9. Conclusion**
-
-
-
-**This project demonstrates how AI tools can support the creation of a short cultural heritage film using accessible technologies and a structured production workflow.**
-
-
-
-**Through this work, I gained practical experience in AI-assisted storytelling, multimedia production, software integration, and technical problem-solving.**
-
-
-
-**The project also demonstrates the potential of AI-generated content to introduce Ethiopia's cultural heritage to international audiences.**
-
-
-
-**---**
-
-
-
-**\*\*Project title:\*\* Lalibela: A Story Carved in Stone**  
-
-**\*\*Status:\*\* Film production completed; audience evaluation and final submission activities pending.**
-
+**Project title:** Lalibela: A Story Carved in Stone  
+**Status:** Film production completed; audience feedback collected from three participants; public GitHub repository created; final submission activities in progress.

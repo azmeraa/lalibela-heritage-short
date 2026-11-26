@@ -134,7 +134,7 @@
 
 
 
-**Audience testing is a required part of the project and must be completed with real participants.**
+**Audience feedback was collected from three participants using the project's feedback application. The feedback below records the versions each participant actually reviewed.**
 
 
 
@@ -142,43 +142,27 @@
 
 
 
-**\*\*Status: Pending\*\***
+**\*\*Status: Completed with one documented participant response.\*\***
 
 
 
-**The radio cut consists of narration with placeholder/background music on a black screen.**
+**\*\*Participant P03\*\***
 
 
 
-**At least three intended-audience participants should listen to it and provide feedback.**
+**P03 listened to the radio cut and provided the following feedback:**
 
 
 
-**Questions:**
+**- Understanding: Understood that the audio presented a general overview of the churches of Lalibela.**
 
-**1. What did you understand about Lalibela after listening?**
+**- New learning: Reported that the audio did not provide new information.**
 
-**2. Was the narration clear and comfortable to listen to?**
+**- Narration: Reported that the narration was not sufficiently clear.**
 
-**3. Was the background music appropriate?**
+**- Music: Found the background music comfortable.**
 
-**4. What would you improve?**
-
-
-
-**Record actual participant feedback below.**
-
-
-
-**| Participant | Main feedback | Planned or completed change |**
-
-**|---|---|---|**
-
-**| Participant 1 | Pending | Pending |**
-
-**| Participant 2 | Pending | Pending |**
-
-**| Participant 3 | Pending | Pending |**
+**- Suggestions: Improve the language and translation, make the narration flow more smoothly, and consider additional language options such as French or Arabic.**
 
 
 
@@ -186,53 +170,83 @@
 
 
 
-**\*\*Status: Pending\*\***
+**\*\*Status: Completed with two documented participant responses.\*\***
 
 
 
-**At least three intended-audience participants should watch the near-final film.**
+**\*\*Participant P01\*\***
 
 
 
-**The same participants may take part in both tests.**
+**- Appreciated the bilingual Amharic and English presentation and the script.**
+
+**- Suggested improving images that did not clearly match the main story of Lalibela.**
+
+**- Recommended smaller subtitles positioned near the bottom of the video.**
+
+**- Suggested adding Amharic text when English narration is used.**
+
+**- Recommended exploring Addis AI Amharic voices for improved audio quality.**
 
 
 
-**Questions:**
-
-**1. What did you learn about Lalibela?**
-
-**2. Which scene or message was most memorable?**
-
-**3. Were the subtitles and narration understandable?**
-
-**4. Did the film represent Lalibela respectfully?**
-
-**5. What would you improve?**
+**\*\*Participant P02\*\***
 
 
 
-**Record actual feedback and resulting changes below.**
+**- Understood the film as a documentary-style introduction to Lalibela, its rock-hewn churches, living religious traditions, and shared heritage.**
+
+**- Appreciated the bilingual storytelling, clear narration, background music, and closing message.**
+
+**- Noted that some AI-generated architectural details, particularly Biete Giyorgis, looked stylized or inaccurate.**
+
+**- Recommended using an Ethiopic-compatible font for the Amharic end-card text.**
+
+**- Suggested smaller subtitles with a semi-transparent dark background near the bottom.**
+
+**- Recommended improving one Amharic narration phrase to make it sound more natural.**
+
+**- Suggested using more authentic visual references for Biete Giyorgis and religious clothing.**
 
 
 
-**| Participant | Main feedback | Planned or completed change |**
-
-**|---|---|---|**
-
-**| Participant 1 | Pending | Pending |**
-
-**| Participant 2 | Pending | Pending |**
-
-**| Participant 3 | Pending | Pending |**
+**### Design changes and lessons resulting from audience feedback**
 
 
 
-**### Design changes resulting from audience feedback**
+**The feedback identified several strengths and areas for improvement.**
 
 
 
-**To be completed after both audience tests. Document the feedback received, the changes made, and any suggestions that could not be implemented.**
+**\*\*Positive feedback:\*\***
+
+**- The bilingual Amharic and English storytelling was appreciated.**
+
+**- The script and shared-heritage message were well received.**
+
+**- The background music was considered comfortable and suitable by the participants who commented on it.**
+
+
+
+**\*\*Areas identified for improvement:\*\***
+
+**1. Improve the relevance and historical accuracy of AI-generated images.**
+
+**2. Reduce subtitle size and position subtitles closer to the bottom of the video.**
+
+**3. Improve Amharic text rendering using an Ethiopic-compatible font.**
+
+**4. Review Amharic narration and translation for natural language flow.**
+
+**5. Explore alternative Amharic TTS voices and additional language options.**
+
+
+
+**The feedback was reviewed against the assignment requirements. English subtitles were retained because English subtitles are a required deliverable. Suggestions for additional Amharic subtitles, French or Arabic translations, alternative TTS voices, and more authentic architectural imagery are recorded as future improvements rather than claimed as completed changes.**
+
+
+
+**The feedback also highlighted the importance of checking AI-generated heritage visuals against reliable historical references.**
 
 
 
@@ -240,11 +254,13 @@
 
 
 
-**- Some AI-generated images may contain visual inaccuracies or artificial-looking details.**
+**- Some AI-generated images may contain visual inaccuracies or artificial-looking architectural details.**
 
 **- The film has not yet been reviewed by a qualified local heritage expert.**
 
-**- Audience testing and feedback documentation remain pending.**
+**- Three participants provided feedback, but the documented responses cover two near-final film reviews and one radio-cut review.**
+
+**- Some audience suggestions have not yet been implemented.**
 
 **- A complete one-command regeneration workflow from a clean clone is not yet implemented.**
 
@@ -264,15 +280,23 @@
 
 **- Review by Ethiopian heritage and language experts.**
 
-**- Additional audience testing and revisions.**
+**- Further audience testing and revisions.**
 
 **- Improved character and architectural consistency.**
+
+**- Smaller subtitles and improved subtitle placement.**
+
+**- Better Amharic text rendering and narration quality.**
+
+**- Additional language support for international audiences.**
 
 **- A more automated and reproducible production pipeline.**
 
 **- Better cost tracking and complete model-call records.**
 
-**## Audience Feedback Collection System**
+
+
+**## 9. Audience Feedback Collection System**
 
 
 
@@ -304,27 +328,31 @@
 
 
 
-**### Actual audience testing status**
+**The TEST001 record is a software-test entry and is not included as genuine audience feedback.**
 
 
 
-**The required radio-cut and near-final-film tests with at least three real viewers have not yet been completed. The sample response is not evidence of audience opinion. Genuine viewer responses must be collected before reporting audience findings or design changes.**
+**### Actual audience feedback status**
 
 
 
-**### Planned use of feedback**
+**Three participants provided genuine feedback:**
+
+**- P01 reviewed the near-final film.**
+
+**- P02 reviewed the near-final film.**
+
+**- P03 listened to the radio cut.**
 
 
 
-**Once genuine responses are collected, the project will document:**
+**Their responses are documented in Section 6. The feedback identified strengths in bilingual storytelling and music, as well as improvements needed in subtitle presentation, visual accuracy, Amharic text rendering, and narration quality.**
 
-**- What viewers understood about Lalibela.**
 
-**- Whether the narration and music were effective.**
 
-**- Which parts of the film viewers appreciated.**
+**### Use of feedback**
 
-**- Suggested improvements.**
 
-**- Changes made to the film in response to feedback.**
+
+**The feedback informed the evaluation of the completed film and the identification of future improvements. Suggestions that were not implemented during this production period are documented rather than presented as completed changes.**
 

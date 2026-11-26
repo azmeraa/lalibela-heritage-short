@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lalibela | AI Production Intelligence</title>
+<style>
+:root {
+  --ink:#172033; --muted:#687386; --line:#e5e9f0;
+  --paper:#f5f7fb; --panel:#fff; --accent:#6757d9;
+  --green:#16845b; --red:#c14e4e;
+}
+* {box-sizing:border-box}
+body {margin:0;background:var(--paper);color:var(--ink);
+  font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.5}
+header {background:#172033;color:#fff;padding:34px max(5vw,22px)}
+header .eyebrow {color:#b9b3ff;text-transform:uppercase;
+  letter-spacing:2px;font-size:11px;font-weight:700}
+h1 {font-size:clamp(25px,4vw,38px);margin:8px 0}
+header p {color:#d1d7e3;margin:0;max-width:760px}
+main {max-width:1250px;margin:30px auto;padding:0 22px 50px}
+.section {margin:30px 0}
+.section h2 {font-size:19px;margin:0 0 14px}
+.metrics {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.metric,.panel {background:var(--panel);border:1px solid var(--line);
+  border-radius:13px;padding:19px}
+.metric span,.metric small {display:block;color:var(--muted)}
+.metric span {font-size:13px}
+.metric strong {display:block;font-size:29px;margin:7px 0}
+.metric small {font-size:12px}
+.panel {margin-bottom:14px}
+.stage {margin:15px 0}
+.stage-label {display:flex;justify-content:space-between;gap:12px;
+  font-size:13px;margin-bottom:7px}
+.stage-label span {color:var(--muted)}
+.bar {height:9px;background:#edf0f5;border-radius:20px;overflow:hidden}
+.bar div {height:100%;background:var(--accent);border-radius:20px}
+.table-wrap {overflow-x:auto;background:white;border:1px solid var(--line);
+  border-radius:12px}
+table {width:100%;border-collapse:collapse;font-size:12px;min-width:650px}
+th,td {padding:11px 13px;text-align:left;border-bottom:1px solid var(--line);
+  vertical-align:top}
+th {background:#f7f8fc;color:#4b5568;font-weight:700;white-space:nowrap}
+tr:last-child td {border-bottom:0}
+.note {border-left:3px solid var(--accent);padding:13px 16px;
+  background:#fff;border-radius:0 9px 9px 0;color:#4d586b;font-size:13px}
+footer {color:var(--muted);font-size:12px;margin-top:32px}
+@media(max-width:760px) {
+  .metrics {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stage-label {flex-direction:column;gap:2px}
+}
+@media(max-width:430px) {
+  .metrics {grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">AI Engineering · Production Data · Observability</div>
+  <h1>Lalibela — AI Production Intelligence</h1>
+  <p>A database-backed view of storyboard structure, model execution,
+  generation performance, production assets and audience-feedback records.</p>
+</header>
+<main>
+  <section class="section">
+    <h2>Production overview</h2>
+    <div class="metrics"><article class='metric'><span>Storyboard scenes</span><strong>8</strong><small>Structured story units</small></article><article class='metric'><span>Recorded AI runs</span><strong>21</strong><small>All logged model-run records</small></article><article class='metric'><span>Successful runs</span><strong>18</strong><small>85.7% success rate</small></article><article class='metric'><span>Failed runs</span><strong>3</strong><small>Failures retained for audit</small></article><article class='metric'><span>Verified assets</span><strong>46/46</strong><small>0 missing</small></article><article class='metric'><span>Audience records</span><strong>1</strong><small>0 non-test · 1 test</small></article></div>
+  </section>
+
+  <section class="section">
+    <h2>Model execution performance</h2>
+    <div class="panel">
+
+        <div class="stage">
+          <div class="stage-label"><strong>keyframe</strong>
+          <span>1/4 successful · 25%</span></div>
+          <div class="bar"><div style="width:25.0%"></div></div>
+        </div>
+        <div class="stage">
+          <div class="stage-label"><strong>keyframes</strong>
+          <span>9/9 successful · 100%</span></div>
+          <div class="bar"><div style="width:100.0%"></div></div>
+        </div>
+        <div class="stage">
+          <div class="stage-label"><strong>narration_generation</strong>
+          <span>8/8 successful · 100%</span></div>
+          <div class="bar"><div style="width:100.0%"></div></div>
+        </div>
+    </div>
+    <div class='table-wrap'><table><thead><tr><th>Stage</th><th>Model</th><th>Runs</th><th>Successful</th><th>Failed</th><th>Avg. success latency (sec)</th><th>Recorded cost (USD)</th></tr></thead><tbody><tr><td>keyframe</td><td>@cf/black-forest-labs/flux-2-klein-4b</td><td>4</td><td>1</td><td>3</td><td>8.73</td><td>Not recorded</td></tr><tr><td>keyframes</td><td>@cf/black-forest-labs/flux-2-klein-4b</td><td>9</td><td>9</td><td>0</td><td>8.38</td><td>Not recorded</td></tr><tr><td>narration_generation</td><td>gemini-3.8-flash-tts</td><td>8</td><td>8</td><td>0</td><td>13.91</td><td>Not recorded</td></tr></tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>Scene generation history</h2>
+    <div class='table-wrap'><table><thead><tr><th>shot_id</th><th>title</th><th>generation_attempts</th><th>successes</th><th>failures</th><th>successful_generation_seconds</th></tr></thead><tbody><tr><td>S01</td><td>Discovering Ethiopia</td><td>6</td><td>3</td><td>3</td><td>25.6</td></tr><tr><td>S02</td><td>First sight of Lalibela</td><td>2</td><td>2</td><td>0</td><td>13.91</td></tr><tr><td>S03</td><td>Carved from living rock</td><td>2</td><td>2</td><td>0</td><td>10.24</td></tr><tr><td>S04</td><td>History and human vision</td><td>2</td><td>2</td><td>0</td><td>14.44</td></tr><tr><td>S05</td><td>A living place of faith</td><td>2</td><td>2</td><td>0</td><td>12.84</td></tr><tr><td>S06</td><td>The Church of Saint George</td><td>3</td><td>3</td><td>0</td><td>37.58</td></tr><tr><td>S07</td><td>Different cultures, shared heritage</td><td>2</td><td>2</td><td>0</td><td>69.33</td></tr><tr><td>S08</td><td>A heritage for generations</td><td>2</td><td>2</td><td>0</td><td>11.48</td></tr></tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>Production asset inventory</h2>
+    <div class='table-wrap'><table><thead><tr><th>File type</th><th>Registered</th><th>Present on disk</th></tr></thead><tbody><tr><td>wav</td><td>13</td><td>13</td></tr><tr><td>mp4</td><td>12</td><td>12</td></tr><tr><td>jpg</td><td>10</td><td>10</td></tr><tr><td>unknown</td><td>5</td><td>5</td></tr><tr><td>txt</td><td>1</td><td>1</td></tr><tr><td>srt</td><td>1</td><td>1</td></tr><tr><td>pdf</td><td>1</td><td>1</td></tr><tr><td>json</td><td>1</td><td>1</td></tr><tr><td>docx</td><td>1</td><td>1</td></tr><tr><td>csv</td><td>1</td><td>1</td></tr></tbody></table></div>
+    <p class="note">Asset verification: 46 of 46 registered
+    files are present on disk. Missing assets: 0.</p>
+  </section>
+
+  <section class="section">
+    <h2>Recent model-run records</h2>
+    <div class='table-wrap'><table><thead><tr><th>Timestamp</th><th>Stage</th><th>Scene</th><th>Status</th><th>Latency (sec)</th><th>Error</th></tr></thead><tbody><tr><td>2026-11-26T07:48:14.032873+00:00</td><td>keyframe</td><td>S01</td><td>success</td><td>8.73</td><td>—</td></tr><tr><td>2026-11-26T07:38:07.498236+00:00</td><td>keyframe</td><td>S01</td><td>failed</td><td>0.08</td><td>400 Client Error: Bad Request for url: https://api.cloudflare.com/client/v4/accounts/0f61947a788aa8a59c85ba00063051a9/ai/run/@cf/black-forest-labs/flux-2-klein-4b</td></tr><tr><td>2026-11-26T07:38:03.420215+00:00</td><td>keyframe</td><td>S01</td><td>failed</td><td>0.1</td><td>400 Client Error: Bad Request for url: https://api.cloudflare.com/client/v4/accounts/0f61947a788aa8a59c85ba00063051a9/ai/run/@cf/black-forest-labs/flux-2-klein-4b</td></tr><tr><td>2026-11-26T07:38:01.319318+00:00</td><td>keyframe</td><td>S01</td><td>failed</td><td>0.3</td><td>400 Client Error: Bad Request for url: https://api.cloudflare.com/client/v4/accounts/0f61947a788aa8a59c85ba00063051a9/ai/run/@cf/black-forest-labs/flux-2-klein-4b</td></tr><tr><td>2026-11-25T08:41:12.557236+00:00</td><td>keyframes</td><td>S06</td><td>success</td><td>8.05</td><td>—</td></tr><tr><td>2026-11-25T08:41:04.500029+00:00</td><td>keyframes</td><td>S01</td><td>success</td><td>11.36</td><td>—</td></tr><tr><td>2026-11-25T08:24:56.658395+00:00</td><td>keyframes</td><td>S08</td><td>success</td><td>6.51</td><td>—</td></tr><tr><td>2026-11-25T08:24:50.146490+00:00</td><td>keyframes</td><td>S07</td><td>success</td><td>8.87</td><td>—</td></tr></tbody></table></div>
+  </section>
+
+  <section class="section">
+    <h2>Data integrity and reporting notes</h2>
+    <div class="note">
+      <strong>Cost transparency:</strong> Not recorded in recorded model
+      costs. A missing cost value means it was not captured; it does not mean
+      the operation was free.<br><br>
+      <strong>Feedback distinction:</strong> 0 non-test
+      feedback record(s) and 1 test record(s) are stored in
+      this database. Test records are not counted as audience participants.
+    </div>
+  </section>
+
+  <footer>
+    Generated from outputs/ai_production.db · Lalibela: A Story Carved in Stone
+    · Standalone dashboard; refresh by rerunning create_dashboard.py
+  </footer>
+</main>
+</body>
+</html>

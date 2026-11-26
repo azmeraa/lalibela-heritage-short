@@ -1,0 +1,17 @@
+01_validate_storyboard.py*
+02_test_gemini_tts.py
+03_test_amharic_tts.py
+04_prepare_narration.py
+05_generate_narration.py
+06_check_audio.py
+07_assemble_narration_track.py
+08_generate_test_image.py
+09_generate_keyframes.py
+10_check_images.py
+11_fix_image_extensions.py
+12_create_contact_sheet.py
+13_create_end_card.py
+14_create_moving_shots.py
+15_assemble_horizontal.py
+15_assemble_vertical.py
+__pycache__/

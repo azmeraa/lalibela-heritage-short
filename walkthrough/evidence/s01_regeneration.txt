@@ -1,0 +1,13 @@
+LALIBELA — SELECTIVE S01 REGENERATION EVIDENCE
+==============================================
+
+UPDATED STORYBOARD PROMPT
+
+KEYFRAME GENERATION CONFIGURATION
+31:REGENERATE_ONLY = {"S01"}
+211:                f"[PASS] Generated {shot_id} "
+267:        if shot_id not in REGENERATE_ONLY:
+283:        print(f"\n[GENERATING] {shot_id}")
+
+RECENT S01 RUN LOGS
+{"timestamp": "2026-11-25T08:41:04.500029+00:00", "stage": "keyframes", "shot_id": "S01", "model": "@cf/black-forest-labs/flux-2-klein-4b", "parameters": {"width": 1024, "height": 576, "seed": 4243}, "prompt": "A highly realistic travel documentary photograph of the Ethiopian highlands near Lalibela, Ethiopia, at sunrise. Authentic northern Ethiopian landscape with rugged rocky mountains, dry natural hills, deep valleys and distant mountain ridges. Subtle early morning golden sunlight, soft realistic atmospheric haze, natural earthy brown, ochre and muted green colors. Geographically believable Ethiopian highland terrain, photographed with a professional documentary camera. Natural photographic composition, realistic details, no fantasy scenery, no exaggerated mountains, no artificial lighting, no oversaturated colors, no illustration, no painting, no text, no watermark.", "latency_seconds": 11.36, "cost_usd": null, "status": "success", "output": "assets\\images\\S01.jpg", "seed": 4243, "scene_id": "S01"}

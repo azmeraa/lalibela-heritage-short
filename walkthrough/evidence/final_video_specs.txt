@@ -1,0 +1,24 @@
+LALIBELA — FINAL FILM TECHNICAL EVIDENCE
+========================================
+
+VERTICAL FILM
+codec_name=h264
+codec_type=video
+width=1080
+height=1920
+r_frame_rate=25/1
+codec_name=aac
+codec_type=audio
+r_frame_rate=0/0
+duration=89.000000
+
+HORIZONTAL FILM
+codec_name=h264
+codec_type=video
+width=1920
+height=1080
+r_frame_rate=25/1
+codec_name=aac
+codec_type=audio
+r_frame_rate=0/0
+duration=89.000000

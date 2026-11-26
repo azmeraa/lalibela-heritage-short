@@ -1,0 +1,39 @@
+{
+  "project_name": "Lalibela: A Story Carved in Stone",
+  "language": {
+    "narration": [
+      "am",
+      "en"
+    ],
+    "subtitles": "en"
+  },
+  "generation": {
+    "image_provider": "not_configured",
+    "video_provider": "not_configured",
+    "audio_provider": "not_configured",
+    "do_not_call_provider_without_credentials": true
+  },
+  "video": {
+    "fps": 24,
+    "vertical": {
+      "width": 1080,
+      "height": 1920
+    },
+    "horizontal": {
+      "width": 1920,
+      "height": 1080
+    },
+    "codec": "libx264",
+    "audio_codec": "aac"
+  },
+  "paths": {
+    "storyboard": "storyboard.json",
+    "schema": "storyboard.schema.json",
+    "images": "assets/images",
+    "videos": "assets/videos",
+    "audio": "assets/audio",
+    "subtitles": "assets/subtitles",
+    "outputs": "outputs",
+    "logs": "logs/runs.jsonl"
+  }
+}

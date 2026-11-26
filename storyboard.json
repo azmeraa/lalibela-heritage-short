@@ -1,0 +1,266 @@
+{
+  "project": {
+    "title": "Lalibela: A Story Carved in Stone",
+    "alternate_title_am": "ላሊበላ፡ በድንጋይ የተቀረፀ ታሪክ",
+    "project_type": "AI-generated heritage short documentary",
+    "location": "Lalibela, Ethiopia",
+    "target_audience": "International audience",
+    "target_duration_seconds": 85,
+    "narration_languages": [
+      "am",
+      "en"
+    ],
+    "subtitle_language": "en",
+    "visual_style": "Photorealistic, respectful documentary style",
+    "output_formats": [
+      {
+        "name": "vertical",
+        "aspect_ratio": "9:16"
+      },
+      {
+        "name": "horizontal",
+        "aspect_ratio": "16:9"
+      }
+    ],
+    "disclosure": "AI-generated heritage short. Historical and architectural visuals must be reviewed for accuracy."
+  },
+  "characters": [
+    {
+      "character_id": "visitor_jp",
+      "role": "International visitor",
+      "description": "Fictional young adult Japanese woman with shoulder-length black hair, beige travel jacket and a small dark backpack. Curious and thoughtful.",
+      "continuity_rules": "Keep face, hairstyle, clothing colors and backpack consistent in every appearance."
+    },
+    {
+      "character_id": "visitor_br",
+      "role": "International visitor",
+      "description": "Fictional young adult Black Brazilian man with short curly black hair, olive-green shirt and a dark travel backpack. Friendly and enthusiastic.",
+      "continuity_rules": "Keep face, hairstyle, clothing colors and backpack consistent in every appearance."
+    },
+    {
+      "character_id": "visitor_eu",
+      "role": "International visitor",
+      "description": "Fictional young adult European woman with brown hair tied back, navy-blue jacket and a small backpack. Reflective and observant.",
+      "continuity_rules": "Keep face, hairstyle, clothing colors and backpack consistent in every appearance."
+    },
+    {
+      "character_id": "guide_et",
+      "role": "Local Ethiopian heritage guide",
+      "description": "Fictional adult Ethiopian man with short dark hair and simple, respectful traditional-inspired clothing. Calm, welcoming and knowledgeable.",
+      "continuity_rules": "Keep face, hairstyle and clothing consistent in every appearance."
+    }
+  ],
+  "production_rules": {
+    "architecture": "Represent the authentic rock-hewn architecture of Lalibela. Do not depict the churches as ordinary buildings assembled from blocks.",
+    "religious_respect": "Depict worshippers and religious spaces respectfully. Do not invent ceremonies, sacred objects, inscriptions or historical events.",
+    "fictional_characters": "International visitors and the guide are fictional AI-generated characters, not real identifiable people.",
+    "character_consistency": "Reuse approved character reference images or fixed character descriptions across shots.",
+    "vertical_composition": "For 9:16, keep the main subject within the central safe area and avoid placing essential details near the edges.",
+    "horizontal_composition": "Create a separately composed 16:9 version where possible rather than relying only on cropping.",
+    "review": "Check generated architecture, human anatomy, clothing, gestures and cultural details before using any clip."
+  },
+  "shots": [
+    {
+      "shot_id": "S01",
+      "start_seconds": 0,
+      "end_seconds": 10,
+      "duration_seconds": 10,
+      "title": "Discovering Ethiopia",
+      "characters": [],
+      "location_visual": "Ethiopian highlands near Lalibela",
+      "camera": "Wide aerial establishing shot, slowly advancing over the landscape.",
+      "action": "Morning sunlight reveals the rugged highlands and establishes the journey toward Lalibela.",
+      "image_prompt": "Photorealistic cinematic documentary aerial view of the Ethiopian highlands near Lalibela at sunrise, rugged mountains, natural golden morning light, authentic Ethiopian landscape, atmospheric depth, realistic terrain, documentary composition, no text, no watermark.",
+      "motion_prompt": "A drone-like camera slowly advances over the Ethiopian highlands as morning light reveals the landscape. Keep movement smooth and realistic; do not distort the terrain.",
+      "narration": {
+        "language": "am",
+        "text": "ከዓለም የተለያዩ አቅጣጫዎች፣ ሰዎች የኢትዮጵያን ታሪክ ለማወቅ ይጓዛሉ።"
+      },
+      "subtitle": {
+        "language": "en",
+        "text": "People travel from different corners of the world to discover Ethiopia's remarkable history."
+      },
+      "sound_design": "Gentle wind ambience and soft original instrumental music.",
+      "transition_out": "Slow cinematic fade."
+    },
+    {
+      "shot_id": "S02",
+      "start_seconds": 10,
+      "end_seconds": 20,
+      "duration_seconds": 10,
+      "title": "First sight of Lalibela",
+      "characters": [
+        "visitor_jp",
+        "visitor_br",
+        "visitor_eu"
+      ],
+      "location_visual": "Public viewpoint overlooking Lalibela's rock-hewn churches",
+      "camera": "Wide reveal followed by a medium shot of the three visitors.",
+      "action": "The visitors look toward the churches with expressions of amazement, remaining in a public viewing area.",
+      "image_prompt": "Photorealistic documentary scene in Lalibela, Ethiopia. Three fictional international travelers: a young Japanese woman with shoulder-length black hair wearing a beige travel jacket, a young Black Brazilian man with short curly hair wearing an olive-green shirt, and a young European woman with tied-back brown hair wearing a navy-blue jacket. They stand together looking in amazement at the authentic rock-hewn churches of Lalibela. Respectful cultural tourism, natural human expressions, daylight, no text.",
+      "motion_prompt": "The camera gently moves toward the three visitors as they turn their attention to the churches. Use subtle natural expressions and realistic body movement. Preserve the same character appearances and clothing.",
+      "narration": {
+        "language": "en",
+        "text": "What awaits them in Lalibela is beyond what they imagined."
+      },
+      "subtitle": {
+        "language": "en",
+        "text": "What awaits them in Lalibela is beyond what they imagined."
+      },
+      "sound_design": "Outdoor ambience; instrumental music grows gently.",
+      "transition_out": "Cut to carved stone details."
+    },
+    {
+      "shot_id": "S03",
+      "start_seconds": 20,
+      "end_seconds": 30,
+      "duration_seconds": 10,
+      "title": "Carved from living rock",
+      "characters": [],
+      "location_visual": "Authentic rock-hewn church exterior and architectural details",
+      "camera": "Slow tracking shot with close-ups of carved walls, windows and pillars.",
+      "action": "The camera reveals the texture and craftsmanship of the rock-cut architecture.",
+      "image_prompt": "Highly realistic close-up documentary photography of the authentic rock-hewn churches of Lalibela, Ethiopia. Show carved volcanic rock walls, windows, pillars, architectural details and weathered stone surfaces. Historically respectful, accurate Ethiopian medieval rock-cut architecture, natural light, detailed textures, no invented structures, no text.",
+      "motion_prompt": "Move slowly along the carved stone details. Keep the architecture stable and geometrically plausible. Avoid morphing, melting or adding unsupported architectural features.",
+      "narration": {
+        "language": "am",
+        "text": "እነዚህ አስደናቂ ቤተ ክርስቲያናት ከጠንካራ ድንጋይ ተፈልፍለው የተሠሩ ናቸው።"
+      },
+      "subtitle": {
+        "language": "en",
+        "text": "These extraordinary churches were carved directly from solid rock."
+      },
+      "sound_design": "Subtle outdoor ambience and restrained instrumental music.",
+      "transition_out": "Gentle cut to a rock-cut passage."
+    },
+    {
+      "shot_id": "S04",
+      "start_seconds": 30,
+      "end_seconds": 40,
+      "duration_seconds": 10,
+      "title": "History and human vision",
+      "characters": [
+        "guide_et",
+        "visitor_jp",
+        "visitor_br",
+        "visitor_eu"
+      ],
+      "location_visual": "Rock-cut passage or publicly accessible church surroundings",
+      "camera": "Smooth forward movement through a passage, then a medium group composition.",
+      "action": "The local guide gestures toward the architecture while the visitors listen attentively.",
+      "image_prompt": "Photorealistic documentary scene in Lalibela, Ethiopia. A fictional Ethiopian male heritage guide with short dark hair and simple traditional-inspired clothing explains the rock-hewn architecture to three consistent fictional visitors: Japanese woman in beige jacket, Black Brazilian man in olive-green shirt, European woman in navy-blue jacket. Authentic stone surroundings, respectful cultural exchange, natural light, realistic anatomy, no text.",
+      "motion_prompt": "The camera moves smoothly through the rock-cut passage and settles on the guide making one small explanatory gesture. Visitors listen naturally. Preserve all character identities and clothing.",
+      "narration": {
+        "language": "en",
+        "text": "Traditionally linked to King Lalibela, the site was conceived as a symbolic New Jerusalem."
+      },
+      "subtitle": {
+        "language": "en",
+        "text": "Traditionally linked to King Lalibela, the site was conceived as a symbolic New Jerusalem."
+      },
+      "sound_design": "Warm instrumental layer with a subtle emotional rise.",
+      "transition_out": "Gentle dissolve to the living community."
+    },
+    {
+      "shot_id": "S05",
+      "start_seconds": 40,
+      "end_seconds": 50,
+      "duration_seconds": 10,
+      "title": "A living place of faith",
+      "characters": [],
+      "location_visual": "Church surroundings in Lalibela",
+      "camera": "Respectful wide and medium documentary shots; avoid intrusive close-ups.",
+      "action": "Ethiopian Orthodox pilgrims and worshippers move naturally through the surroundings. Visitors observe quietly from an appropriate public area.",
+      "image_prompt": "Respectful documentary photography of Ethiopian Orthodox Christian pilgrims wearing traditional white cotton clothing near the authentic rock-hewn churches of Lalibela, Ethiopia. Natural human activity, peaceful atmosphere, cultural dignity, realistic architecture, natural daylight, no staged ceremony, no invented religious symbolism, no text.",
+      "motion_prompt": "Pilgrims walk naturally through the church surroundings. Keep the camera unobtrusive and respectful. Avoid exaggerated gestures or fabricated ritual activity.",
+      "narration": {
+        "language": "am",
+        "text": "ዛሬም ድረስ ላሊበላ የጸሎት፣ የእምነትና የመንፈሳዊ ጉዞ ማዕከል ነው።"
+      },
+      "subtitle": {
+        "language": "en",
+        "text": "Today, Lalibela remains a living place of worship, pilgrimage and devotion."
+      },
+      "sound_design": "Gentle natural ambience; do not fabricate identifiable ceremony or liturgical audio.",
+      "transition_out": "Cut to the aerial reveal of Biete Ghiorgis."
+    },
+    {
+      "shot_id": "S06",
+      "start_seconds": 50,
+      "end_seconds": 60,
+      "duration_seconds": 10,
+      "title": "The Church of Saint George",
+      "characters": [
+        "visitor_jp",
+        "visitor_br",
+        "visitor_eu"
+      ],
+      "location_visual": "Biete Ghiorgis, Lalibela",
+      "camera": "Elevated aerial reveal moving slowly toward the church; optional visitor reaction shot.",
+      "action": "Biete Ghiorgis appears in its distinctive cross-shaped form. Visitors admire it from a permitted viewing area.",
+      "image_prompt": "Photorealistic aerial documentary view of Biete Ghiorgis, the Church of Saint George in Lalibela, Ethiopia. Show its distinctive cross-shaped rock-hewn architecture surrounded by the excavated rock courtyard. Historically accurate geometry, natural golden-hour lighting, high detail, no invented architecture, no text.",
+      "motion_prompt": "A smooth aerial movement reveals the cross-shaped church from above. Preserve the church's recognizable geometry and the surrounding excavated rock courtyard.",
+      "narration": {
+        "language": "en",
+        "text": "Among them, Biete Ghiorgis stands out with its remarkable cross-shaped design."
+      },
+      "subtitle": {
+        "language": "en",
+        "text": "Among them, Biete Ghiorgis stands out with its remarkable cross-shaped design."
+      },
+      "sound_design": "Music reaches a gentle emotional high point.",
+      "transition_out": "Dissolve to the visitors and local guide."
+    },
+    {
+      "shot_id": "S07",
+      "start_seconds": 60,
+      "end_seconds": 72,
+      "duration_seconds": 12,
+      "title": "Different cultures, shared heritage",
+      "characters": [
+        "guide_et",
+        "visitor_jp",
+        "visitor_br",
+        "visitor_eu"
+      ],
+      "location_visual": "Public visitor area near the rock-hewn churches",
+      "camera": "Medium group shot followed by natural reaction close-ups.",
+      "action": "The guide shares the story of Lalibela. The visitors listen, smile and appreciate the architecture.",
+      "image_prompt": "Photorealistic cinematic documentary scene showing the same fictional Ethiopian male heritage guide with short dark hair and simple traditional-inspired clothing, alongside the same three international visitors: Japanese woman in beige jacket, Black Brazilian man in olive-green shirt, European woman in navy-blue jacket. They share a respectful moment of cultural exchange near an authentic Lalibela rock-hewn church. Consistent character faces and clothing, natural expressions, no text.",
+      "motion_prompt": "Visitors listen naturally to the guide, with subtle facial expressions and gentle camera movement. Keep character faces, hairstyles and clothes consistent with earlier shots.",
+      "narration": {
+        "language": "am",
+        "text": "የተለያዩ ባህሎችና ቋንቋዎች ያሏቸው ሰዎች በዚህ የጋራ የሰው ልጅ ቅርስ ይገናኛሉ።"
+      },
+      "subtitle": {
+        "language": "en",
+        "text": "People from different cultures and languages come together through this shared human heritage."
+      },
+      "sound_design": "Warm, uplifting instrumental music under the narration.",
+      "transition_out": "Slow dissolve to the final landscape."
+    },
+    {
+      "shot_id": "S08",
+      "start_seconds": 72,
+      "end_seconds": 85,
+      "duration_seconds": 13,
+      "title": "A heritage for generations",
+      "characters": [],
+      "location_visual": "Wide view of Lalibela and Biete Ghiorgis",
+      "camera": "Slow aerial pullback followed by a fade to the end card.",
+      "action": "The camera pulls back to show the churches within the wider landscape. The end card displays the title and AI disclosure.",
+      "image_prompt": "Photorealistic cinematic wide aerial documentary view of Lalibela, Ethiopia, including Biete Ghiorgis and the surrounding highland landscape at golden hour. Authentic rock-hewn church geometry, warm natural light, realistic terrain, dignified heritage-film ending, no text, no watermark.",
+      "motion_prompt": "The camera slowly pulls away from the church and landscape. Hold the final composition briefly, then fade to a clean end card. Do not generate text inside the video; add titles during editing.",
+      "narration": {
+        "language": "en",
+        "text": "Lalibela: Ethiopia's pride, a heritage of the world, and a living story for generations to come."
+      },
+      "subtitle": {
+        "language": "en",
+        "text": "Lalibela: Ethiopia's pride, a heritage of the world, and a living story for generations to come."
+      },
+      "sound_design": "Music resolves gently and fades out beneath the final narration.",
+      "transition_out": "Fade to black after the end card."
+    }
+  ]
+}

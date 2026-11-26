@@ -1,0 +1,255 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/ai-heritage-short/storyboard.schema.json",
+  "title": "AI Heritage Short Storyboard",
+  "description": "Schema for a bilingual AI-generated heritage short documentary storyboard.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "project",
+    "characters",
+    "production_rules",
+    "shots"
+  ],
+  "properties": {
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "location",
+        "target_audience",
+        "target_duration_seconds",
+        "narration_languages",
+        "subtitle_language",
+        "output_formats"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "alternate_title_am": {
+          "type": "string"
+        },
+        "project_type": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_audience": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_duration_seconds": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "narration_languages": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "am",
+              "en"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "subtitle_language": {
+          "enum": [
+            "am",
+            "en"
+          ]
+        },
+        "visual_style": {
+          "type": "string"
+        },
+        "output_formats": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "aspect_ratio"
+            ],
+            "properties": {
+              "name": {
+                "enum": [
+                  "vertical",
+                  "horizontal"
+                ]
+              },
+              "aspect_ratio": {
+                "enum": [
+                  "9:16",
+                  "16:9"
+                ]
+              }
+            }
+          }
+        },
+        "disclosure": {
+          "type": "string"
+        }
+      }
+    },
+    "characters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "character_id",
+          "role",
+          "description",
+          "continuity_rules"
+        ],
+        "properties": {
+          "character_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "continuity_rules": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "production_rules": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "shots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "shot_id",
+          "start_seconds",
+          "end_seconds",
+          "duration_seconds",
+          "title",
+          "characters",
+          "location_visual",
+          "camera",
+          "action",
+          "image_prompt",
+          "motion_prompt",
+          "narration",
+          "subtitle",
+          "sound_design",
+          "transition_out"
+        ],
+        "properties": {
+          "shot_id": {
+            "type": "string",
+            "pattern": "^S[0-9]{2}$"
+          },
+          "start_seconds": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end_seconds": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "duration_seconds": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "characters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "location_visual": {
+            "type": "string"
+          },
+          "camera": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "image_prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "motion_prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "narration": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "language",
+              "text"
+            ],
+            "properties": {
+              "language": {
+                "enum": [
+                  "am",
+                  "en"
+                ]
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "subtitle": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "language",
+              "text"
+            ],
+            "properties": {
+              "language": {
+                "enum": [
+                  "am",
+                  "en"
+                ]
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "sound_design": {
+            "type": "string"
+          },
+          "transition_out": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

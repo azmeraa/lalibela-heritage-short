@@ -1,0 +1,5 @@
+jsonschema>=4.20,<5
+google-genai>=3.6,<4
+python-dotenv>=1.2,<2
+requests>=2.34,<3
+Pillow>=13,<14

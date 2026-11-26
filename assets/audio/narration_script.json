@@ -1,0 +1,78 @@
+
+{
+  "project": "Lalibela: A Story Carved in Stone",
+  "amharic_title": "ላሊበላ፡ በድንጋይ የተቀረፀ ታሪክ",
+  "total_duration_seconds": 85,
+  "narration_style": "Warm, clear, natural documentary narration",
+  "voice": "Kore",
+  "scenes": [
+    {
+      "scene_id": "S01",
+      "start": 0,
+      "end": 10,
+      "language": "am",
+      "narration": "ከዓለም የተለያዩ አቅጣጫዎች፣ ሰዎች የኢትዮጵያን ታሪክ ለማወቅ ይጓዛሉ።",
+      "english_subtitle": "People travel from different corners of the world to discover Ethiopia's remarkable history."
+    },
+    {
+      "scene_id": "S02",
+      "start": 10,
+      "end": 20,
+      "language": "en",
+      "narration": "What awaits them in Lalibela is beyond what they imagined.",
+      "english_subtitle": "What awaits them in Lalibela is beyond what they imagined."
+    },
+    {
+      "scene_id": "S03",
+      "start": 20,
+      "end": 30,
+      "language": "am",
+      "narration": "እነዚህ አስደናቂ ቤተ ክርስቲያናት ከጠንካራ ድንጋይ ተፈልፍለው የተሠሩ ናቸው።",
+      "english_subtitle": "These extraordinary churches were carved directly from solid rock."
+    },
+    {
+      "scene_id": "S04",
+      "start": 30,
+      "end": 40,
+      "language": "en",
+      "narration": "Traditionally linked to King Lalibela, the site was conceived as a symbolic New Jerusalem.",
+      "english_subtitle": "Traditionally linked to King Lalibela, the site was conceived as a symbolic New Jerusalem."
+    },
+    {
+      "scene_id": "S05",
+      "start": 40,
+      "end": 50,
+      "language": "am",
+      "narration": "ዛሬም ድረስ ላሊበላ የጸሎት፣ የእምነትና የመንፈሳዊ ጉዞ ማዕከል ነው።",
+      "english_subtitle": "Today, Lalibela remains a living place of worship, pilgrimage and devotion."
+    },
+    {
+      "scene_id": "S06",
+      "start": 50,
+      "end": 60,
+      "language": "en",
+      "narration": "Among them, Biete Ghiorgis stands out with its remarkable cross-shaped design.",
+      "english_subtitle": "Among them, Biete Ghiorgis stands out with its remarkable cross-shaped design."
+    },
+    {
+      "scene_id": "S07",
+      "start": 60,
+      "end": 72,
+      "language": "am",
+      "narration": "የተለያዩ ባህሎችና ቋንቋዎች ያሏቸው ሰዎች በዚህ የጋራ የሰው ልጅ ቅርስ ይገናኛሉ።",
+      "english_subtitle": "People from different cultures and languages come together through this shared human heritage."
+    },
+    {
+      "scene_id": "S08",
+      "start": 72,
+      "end": 85,
+      "language": "en",
+      "narration": "Lalibela: Ethiopia's pride, a heritage of the world, and a living story for generations to come.",
+      "english_subtitle": "Lalibela: Ethiopia's pride, a heritage of the world, and a living story for generations to come."
+    }
+  ],
+  "closing_message": {
+    "english": "Different people. Different cultures. One shared heritage.",
+    "amharic": "የተለያዩ ሰዎች። የተለያዩ ባህሎች። አንድ የጋራ ቅርስ።"
+  }
+}

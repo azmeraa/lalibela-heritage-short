@@ -5,7 +5,7 @@
 **Project:** AI-Content Generation – The Heritage Short  
 **Creator:** Independent AI content creator  
 **Location:** Ethiopia  
-**Project date:** November 2026  
+**Project date:** November 2026
 
 ---
 
@@ -23,9 +23,9 @@ The final film is approximately 89 seconds long and is available in vertical and
 
 The project includes:
 
+- Eight-scene storyboard stored in JSON.
+- JSON Schema for storyboard validation.
 - Eight AI-generated visual keyframes.
-- An eight-shot storyboard stored in JSON.
-- A JSON Schema for storyboard validation.
 - Amharic and English AI-generated narration.
 - English subtitles.
 - Original AI-generated background music.
@@ -34,7 +34,8 @@ The project includes:
 - Horizontal and vertical MP4 films.
 - A radio cut containing narration and background music over a black screen.
 - An AI-generated end card.
-- Project documentation and a Python audience feedback application.
+- A Python audience feedback application.
+- Technical documentation, experiment records, cost and performance report, and ethics documentation.
 - A public GitHub repository containing the source code, assets, documentation, and video outputs.
 
 ## 3. Development Process and Learning
@@ -43,11 +44,15 @@ I learned how different AI and software tools can work together to produce a com
 
 The development process included story planning, storyboard validation, image generation, narration generation, music creation, audio mixing, video editing, subtitle integration, and final video production.
 
-I also learned the importance of organizing project files, validating structured data, testing individual stages, and documenting technical decisions.
+I documented 11 technical experiments covering storyboard structure, validation, image generation, character consistency, narration, music, audio mixing, image-to-video alternatives, subtitle readability, video formats, and selective keyframe regeneration.
+
+The experiments helped me compare approaches, document observations, and make production decisions. For example, I used FFmpeg pan-and-zoom effects instead of generating a separate AI video for every scene. This provided camera movement while keeping the workflow practical with the available time and resources.
+
+I also learned the importance of organizing project files, validating structured data, testing individual stages, reusing generated assets, and documenting technical decisions.
 
 Developing the Python feedback application helped me understand how software can support the evaluation of AI-generated content.
 
-The project also demonstrated that AI-generated heritage storytelling requires attention to cultural accuracy, language quality, visual consistency, and audience understanding—not just technical production.
+The project demonstrated that AI-generated heritage storytelling requires attention to cultural accuracy, language quality, visual consistency, and audience understanding—not just technical production.
 
 ## 4. Hardest Technical Challenge
 
@@ -57,11 +62,36 @@ I encountered technical problems with AI model configuration, audio file formats
 
 For example, FFmpeg initially encountered problems with the Windows drive-letter colon in the subtitle filter path. I resolved this by using a project-relative subtitle path.
 
-I also used FFmpeg to create camera movement from still images when full AI video generation was not practical within the available time and computing resources.
+Another challenge occurred when I revised the opening scene, S01, and attempted to regenerate its keyframe. The first three logged attempts failed with HTTP 400 errors. A subsequent attempt succeeded, generating the new keyframe in 8.73 seconds.
 
-These experiences taught me to solve problems systematically and validate each production stage.
+I configured the generation process to target S01 rather than regenerate all eight keyframes. I then regenerated its moving shot while reusing the other seven moving shots. Both final film formats were reassembled and passed FFmpeg decoding checks.
 
-## 5. Practices That Helped and Did Not Help
+This selective-regeneration process demonstrated the value of caching and targeted updates. It also showed why failed requests and retries should be recorded rather than hidden.
+
+These experiences taught me to solve problems systematically, inspect logs, and validate each production stage.
+
+## 5. Performance Measurement and Cost Considerations
+
+The project recorded generation-request latency in `logs/runs.jsonl`.
+
+The available successful-request measurements were:
+
+| Production stage | Successful requests | Recorded total latency |
+|---|---:|---:|
+| Narration generation | 8 | 111.24 seconds |
+| Keyframe generation | 10 | 84.18 seconds |
+
+The narration requests used `gemini-3.8-flash-tts` with the Kore voice. Their average recorded latency was approximately 13.91 seconds per request.
+
+The keyframe requests used Cloudflare Workers AI with `@cf/black-forest-labs/flux-2-klein-4b`. The final S01 regeneration succeeded in 8.73 seconds after three failed HTTP 400 attempts.
+
+These figures represent recorded model-request latency, not total production time. The logs do not provide verified monetary API charges, GPU-minutes, electricity consumption, or total development hours. Therefore, I do not claim an exact total production cost or an unsupported list-price equivalent.
+
+Open-source tools such as Python and FFmpeg helped limit software costs. Reusing generated assets and selectively regenerating S01 also reduced unnecessary processing.
+
+More detailed performance and cost limitations are documented in `COSTS.md`.
+
+## 6. Practices That Helped and Did Not Help
 
 ### Practices that helped
 
@@ -70,7 +100,9 @@ These experiences taught me to solve problems systematically and validate each p
 - Testing individual images and audio clips before assembling the film.
 - Keeping generated assets organized.
 - Using FFmpeg for reliable audio and video processing.
-- Documenting technical problems and solutions.
+- Reusing cached assets instead of regenerating everything.
+- Using selective regeneration when a single scene needed improvement.
+- Recording technical problems, experiments, and decisions.
 
 ### Practices that were less effective
 
@@ -78,7 +110,9 @@ Attempting to use more complex AI video generation was not practical within the 
 
 The project therefore used FFmpeg pan-and-zoom animation as a fallback. This allowed the film to include moving shots without relying on expensive or difficult video-generation infrastructure.
 
-## 6. Audience Evaluation
+Some image-generation attempts also failed and required retries. These experiences reinforced the importance of validating model parameters, inspecting error responses, and keeping generation logs.
+
+## 7. Audience Evaluation
 
 A Python-based audience feedback application was developed using Tkinter.
 
@@ -112,9 +146,9 @@ It also identified opportunities to improve visual accuracy, subtitle presentati
 
 English subtitles were retained because they are a required project deliverable. Suggestions that were not implemented during the production period are documented as future improvements rather than claimed as completed changes.
 
-The documented responses cover two near-final film reviews and one radio-cut review. They do not establish that every participant reviewed both versions.
+At the time of this report, two participants had reviewed the near-final film and one had reviewed the radio cut. The assignment target is at least three audience participants for each version, so the audience-testing requirement is not yet fully met. Two additional reviewers have been contacted, and their feedback is pending. Their responses will be added when received.
 
-## 7. What I Would Do With More Time
+## 8. What I Would Do With More Time
 
 With additional time and resources, I would:
 
@@ -125,24 +159,30 @@ With additional time and resources, I would:
 - Improve subtitle size, placement, and Amharic text rendering.
 - Explore alternative Amharic TTS voices and improve narration flow.
 - Test additional language options for international audiences.
-- Improve the automated production pipeline.
+- Improve automated performance and cost tracking.
 - Improve the feedback application with more detailed analysis.
+- Complete the outstanding audience reviews for both film versions.
 
-## 8. Next Steps
+## 9. Next Steps
 
-The next steps are to finalize and verify the public GitHub repository, prepare the required project walkthrough, publish accessible links to the vertical and horizontal films, and share the project publicly as required by the assignment.
+The remaining submission activities are to:
 
-Further improvements to the film and production pipeline can follow after submission.
+- Complete the outstanding audience reviews and update the feedback records.
+- Regenerate and verify the final report PDF after report updates.
+- Record the required project walkthrough within the five-minute limit.
+- Confirm that the vertical film, horizontal film, walkthrough, and public post are accessible to the graders.
+- Publish the required public post with the appropriate AI disclosure.
+- Perform a final review of the public GitHub repository and submission links.
 
-## 9. Conclusion
+## 10. Conclusion
 
 This project demonstrates how AI tools can support the creation of a short cultural heritage film using accessible technologies and a structured production workflow.
 
-Through this work, I gained practical experience in AI-assisted storytelling, multimedia production, software integration, technical problem-solving, and audience evaluation.
+Through this work, I gained practical experience in AI-assisted storytelling, multimedia production, software integration, technical problem-solving, experimentation, performance measurement, and audience evaluation.
 
-The project also demonstrates the potential of AI-generated content to introduce Ethiopia's cultural heritage to international audiences while highlighting the importance of cultural respect, accuracy, and audience feedback.
+The project also demonstrates the potential of AI-generated content to introduce Ethiopia's cultural heritage to international audiences while highlighting the importance of cultural respect, accuracy, transparency, and audience feedback.
 
 ---
 
 **Project title:** Lalibela: A Story Carved in Stone  
-**Status:** Film production completed; audience feedback collected from three participants; public GitHub repository created; final submission activities in progress.
+**Status:** Film production completed; three genuine audience reviews collected (two near-final film reviews and one radio-cut review); additional audience feedback pending; public GitHub repository created; final submission activities in progress.

@@ -1,3 +1,4 @@
+
 {
   "project": {
     "title": "Lalibela: A Story Carved in Stone",
@@ -6,10 +7,7 @@
     "location": "Lalibela, Ethiopia",
     "target_audience": "International audience",
     "target_duration_seconds": 85,
-    "narration_languages": [
-      "am",
-      "en"
-    ],
+    "narration_languages": ["am", "en"],
     "subtitle_language": "en",
     "visual_style": "Photorealistic, respectful documentary style",
     "output_formats": [
@@ -70,7 +68,7 @@
       "location_visual": "Ethiopian highlands near Lalibela",
       "camera": "Wide aerial establishing shot, slowly advancing over the landscape.",
       "action": "Morning sunlight reveals the rugged highlands and establishes the journey toward Lalibela.",
-      "image_prompt": "Photorealistic cinematic documentary aerial view of the Ethiopian highlands near Lalibela at sunrise, rugged mountains, natural golden morning light, authentic Ethiopian landscape, atmospheric depth, realistic terrain, documentary composition, no text, no watermark.",
+      "image_prompt": "Photorealistic cinematic documentary aerial view approaching the historic town of Lalibela in the Ethiopian highlands at sunrise, distant traditional stone buildings and rugged mountain landscape, warm natural golden light, authentic Ethiopian setting, realistic terrain, atmospheric depth, wide documentary composition, no text, no watermark.",
       "motion_prompt": "A drone-like camera slowly advances over the Ethiopian highlands as morning light reveals the landscape. Keep movement smooth and realistic; do not distort the terrain.",
       "narration": {
         "language": "am",
@@ -89,11 +87,7 @@
       "end_seconds": 20,
       "duration_seconds": 10,
       "title": "First sight of Lalibela",
-      "characters": [
-        "visitor_jp",
-        "visitor_br",
-        "visitor_eu"
-      ],
+      "characters": ["visitor_jp", "visitor_br", "visitor_eu"],
       "location_visual": "Public viewpoint overlooking Lalibela's rock-hewn churches",
       "camera": "Wide reveal followed by a medium shot of the three visitors.",
       "action": "The visitors look toward the churches with expressions of amazement, remaining in a public viewing area.",
@@ -139,12 +133,7 @@
       "end_seconds": 40,
       "duration_seconds": 10,
       "title": "History and human vision",
-      "characters": [
-        "guide_et",
-        "visitor_jp",
-        "visitor_br",
-        "visitor_eu"
-      ],
+      "characters": ["guide_et", "visitor_jp", "visitor_br", "visitor_eu"],
       "location_visual": "Rock-cut passage or publicly accessible church surroundings",
       "camera": "Smooth forward movement through a passage, then a medium group composition.",
       "action": "The local guide gestures toward the architecture while the visitors listen attentively.",
@@ -190,11 +179,7 @@
       "end_seconds": 60,
       "duration_seconds": 10,
       "title": "The Church of Saint George",
-      "characters": [
-        "visitor_jp",
-        "visitor_br",
-        "visitor_eu"
-      ],
+      "characters": ["visitor_jp", "visitor_br", "visitor_eu"],
       "location_visual": "Biete Ghiorgis, Lalibela",
       "camera": "Elevated aerial reveal moving slowly toward the church; optional visitor reaction shot.",
       "action": "Biete Ghiorgis appears in its distinctive cross-shaped form. Visitors admire it from a permitted viewing area.",
@@ -217,12 +202,7 @@
       "end_seconds": 72,
       "duration_seconds": 12,
       "title": "Different cultures, shared heritage",
-      "characters": [
-        "guide_et",
-        "visitor_jp",
-        "visitor_br",
-        "visitor_eu"
-      ],
+      "characters": ["guide_et", "visitor_jp", "visitor_br", "visitor_eu"],
       "location_visual": "Public visitor area near the rock-hewn churches",
       "camera": "Medium group shot followed by natural reaction close-ups.",
       "action": "The guide shares the story of Lalibela. The visitors listen, smile and appreciate the architecture.",

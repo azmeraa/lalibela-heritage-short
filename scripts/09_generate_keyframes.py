@@ -12,11 +12,32 @@ import requests
 from dotenv import load_dotenv
 
 
+# --------------------------------------------------
+# PROJECT CONFIGURATION
+# --------------------------------------------------
+
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 
+STORYBOARD = PROJECT_DIR / "storyboard.json"
+IMAGE_DIR = PROJECT_DIR / "assets" / "images"
+LOG_FILE = PROJECT_DIR / "logs" / "runs.jsonl"
+
+IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+MAX_RETRIES = 3
+
+# Regenerate only S01 for the selective-regeneration demonstration.
+REGENERATE_ONLY = {"S01"}
+
+
+# --------------------------------------------------
+# STORYBOARD VALIDATION
+# --------------------------------------------------
 
 def validate_storyboard():
     """Stop keyframe generation if storyboard validation fails."""
+
     validator = PROJECT_DIR / "scripts" / "01_validate_storyboard.py"
 
     result = subprocess.run(
@@ -33,10 +54,10 @@ def validate_storyboard():
     print("[PASS] Storyboard validation completed.")
 
 
-# Validate before preparing any generation requests.
-validate_storyboard()
+# --------------------------------------------------
+# LOAD ENVIRONMENT AND API CONFIGURATION
+# --------------------------------------------------
 
-# Load credentials securely from the project .env file.
 load_dotenv(PROJECT_DIR / ".env")
 
 ACCOUNT_ID = os.getenv("CLOUDFLARE_ACCOUNT_ID")
@@ -52,41 +73,19 @@ BASE_URL = (
     f"{ACCOUNT_ID}/ai/run/{MODEL}"
 )
 
-STORYBOARD = PROJECT_DIR / "storyboard.json"
-IMAGE_DIR = PROJECT_DIR / "assets" / "images"
-LOG_FILE = PROJECT_DIR / "logs" / "runs.jsonl"
 
-IMAGE_DIR.mkdir(parents=True, exist_ok=True)
-LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
-
-MAX_RETRIES = 3
+# --------------------------------------------------
+# LOAD STORYBOARD
+# --------------------------------------------------
 
 storyboard = json.loads(
     STORYBOARD.read_text(encoding="utf-8")
 )
 
 
-# Only regenerate these improved keyframes.
-# The other six existing images remain unchanged.
-REGENERATE_ONLY = {"S01", "S06"}
-
-PROMPT_OVERRIDES = {
-    "S01": (
-        "Cinematic documentary establishing shot of the Ethiopian "
-        "highlands at sunrise, the historic town of Lalibela in the "
-        "distance, warm natural golden light, authentic Ethiopian "
-        "landscape, realistic documentary photography, wide composition, "
-        "no text, no watermark."
-    ),
-    "S06": (
-        "Respectful cinematic documentary view of Biete Ghiorgis, "
-        "the famous cross-shaped rock-hewn church in Lalibela, Ethiopia, "
-        "accurate monumental stone architecture carved downward into "
-        "the rock, natural daylight, realistic documentary photography, "
-        "wide composition, no text, no watermark."
-    )
-}
-
+# --------------------------------------------------
+# CACHE CHECK
+# --------------------------------------------------
 
 def matching_cached_image(shot_id, prompt, output):
     """Reuse a successful image when model, prompt and output match."""
@@ -123,8 +122,12 @@ def matching_cached_image(shot_id, prompt, output):
     return False
 
 
+# --------------------------------------------------
+# IMAGE GENERATION
+# --------------------------------------------------
+
 def generate_image(shot_id, prompt, output):
-    """Generate an image with retries and record each model call."""
+    """Generate an image with retries and execution logging."""
 
     seed = int(time.time() * 1000) % 2147483647
 
@@ -135,15 +138,14 @@ def generate_image(shot_id, prompt, output):
     }
 
     headers = {
-        "Authorization": f"Bearer {API_TOKEN}",
-        "Content-Type": "application/json"
+        "Authorization": f"Bearer {API_TOKEN}"
     }
 
     payload = {
         "prompt": prompt,
-        "width": parameters["width"],
-        "height": parameters["height"],
-        "seed": seed
+        "width": str(parameters["width"]),
+        "height": str(parameters["height"]),
+        "seed": str(seed)
     }
 
     for attempt in range(1, MAX_RETRIES + 1):
@@ -153,12 +155,25 @@ def generate_image(shot_id, prompt, output):
             response = requests.post(
                 BASE_URL,
                 headers=headers,
-                json=payload,
+                files={
+                    key: (None, value)
+                    for key, value in payload.items()
+                },
                 timeout=180
             )
 
-            response.raise_for_status()
+            if not response.ok:
+                raise RuntimeError(
+                    f"Cloudflare HTTP {response.status_code}: "
+                    f"{response.text}"
+                )
+
             result = response.json()
+
+            if not result.get("success", True):
+                raise RuntimeError(
+                    f"Cloudflare API error: {result}"
+                )
 
             image_data = result.get("result", {}).get("image")
 
@@ -232,20 +247,32 @@ def generate_image(shot_id, prompt, output):
     return False
 
 
+# --------------------------------------------------
+# MAIN PIPELINE
+# --------------------------------------------------
+
 def main():
+    print("=" * 64)
+    print("LALIBELA HERITAGE SHORT — KEYFRAME GENERATION")
+    print("=" * 64)
+
+    validate_storyboard()
+
     successful = 0
     failed = 0
 
     for shot in storyboard["shots"]:
-        shot_id = shot["id"]
+        shot_id = shot["shot_id"]
 
         if shot_id not in REGENERATE_ONLY:
             continue
 
-        prompt = PROMPT_OVERRIDES.get(
-            shot_id,
-            shot.get("image_prompt", "")
-        )
+        prompt = shot.get("image_prompt", "").strip()
+
+        if not prompt:
+            print(f"[ERROR] Missing image_prompt for {shot_id}.")
+            failed += 1
+            continue
 
         output = IMAGE_DIR / f"{shot_id}.jpg"
 
